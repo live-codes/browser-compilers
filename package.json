@@ -1,0 +1,90 @@
+{
+  "name": "@live-codes/browser-compilers",
+  "version": "0.1.0",
+  "description": "Compilers that run in the browser",
+  "author": "Hatem Hosny",
+  "license": "MIT",
+  "keywords": [],
+  "repository": {
+    "url": "https://github.com/live-codes/browser-compilers"
+  },
+  "scripts": {
+    "start": "live-server dist --cors",
+    "build": "run-s clean build:vendors copy:types",
+    "build:vendors": "node ./scripts/vendors.js",
+    "copy:types": "recursive-copy vendor_modules/types dist/types",
+    "gh-pages": "gh-pages -m \"[ci skip] Updates\" -d dist",
+    "fix": "run-s fix:*",
+    "fix:prettier": "prettier src --ignore-path .eslintignore --write",
+    "fix:eslint": "eslint --fix --ext js,jsx,ts,tsx .",
+    "lint:prettier": "prettier src --ignore-path .eslintignore --list-different",
+    "lint:eslint": "eslint --ext js,jsx,ts,tsx . ",
+    "release": "standard-version",
+    "prepare-release": "run-s reset build test cov release",
+    "reset": "git clean -dfx && git reset --hard && npm i",
+    "clean": "recursive-delete dist",
+    "prepush": "run-s fix build"
+  },
+  "dependencies": {
+    "@babel/standalone": "7.13.15",
+    "@esbuild-plugins/node-globals-polyfill": "0.1.0",
+    "@esbuild-plugins/node-modules-polyfill": "0.1.1",
+    "@mdx-js/mdx": "1.6.22",
+    "@prettier/plugin-pug": "1.13.2",
+    "@webassemblyjs/wast-refmt": "1.11.1",
+    "asciidoctor": "2.2.1",
+    "babel-preset-solid": "1.0.0",
+    "es-module-shims": "0.10.5",
+    "github-markdown-css": "4.0.0",
+    "less": "4.0.0",
+    "marked": "2.0.3",
+    "monaco-editor": "0.27.0",
+    "normalize.css": "8.0.1",
+    "postcss": "8.2.15",
+    "postcss-preset-env": "6.7.0",
+    "prettier": "2.2.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-native-web": "0.17.1",
+    "reset-css": "5.0.1",
+    "sass.js": "0.11.1",
+    "tailwindcss-browser-plugin": "0.2.0"
+  },
+  "devDependencies": {
+    "@types/live-server": "1.2.0",
+    "@types/node": "14.0.4",
+    "@types/prettier": "2.1.6",
+    "@typescript-eslint/eslint-plugin": "4.8.2",
+    "@typescript-eslint/parser": "4.8.2",
+    "autoprefixer": "10.1.0",
+    "cz-conventional-changelog": "3.2.0",
+    "esbuild": "0.11.12",
+    "esbuild-plugin-replace": "1.0.6",
+    "eslint": "7.32.0",
+    "eslint-config-prettier": "6.11.0",
+    "eslint-plugin-import": "2.20.2",
+    "eslint-plugin-jest": "23.13.1",
+    "eslint-plugin-jsdoc": "25.4.2",
+    "eslint-plugin-prefer-arrow": "1.2.1",
+    "gh-pages": "2.2.0",
+    "live-server": "1.2.1",
+    "mkdirp": "1.0.4",
+    "npm-run-all": "4.1.5",
+    "parcel-bundler": "1.12.4",
+    "postcss-cli": "8.3.1",
+    "recursive-fs": "2.1.0",
+    "standard-version": "9.3.0",
+    "typescript": "4.4.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "prettier": {
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "printWidth": 100
+  }
+}
