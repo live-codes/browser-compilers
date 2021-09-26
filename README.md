@@ -2,7 +2,7 @@
 
 Compilers that run in the browser.
 
-For use in [LiveCodes](https://github.com/live-codes/livecodes).
+This repo includes compilers (not available as such on CDNs) built for in-browser use in [LiveCodes](https://github.com/live-codes/livecodes).
 
 ## License
 
