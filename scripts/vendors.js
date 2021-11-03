@@ -147,8 +147,8 @@ esbuild.build({
 // svelte
 esbuild.buildSync({
   ...baseOptions,
-  entryPoints: ['vendor_modules/src/svelte/compiler.js'],
-  outfile: 'dist/svelte/svelte-compiler.3.42.4.min.js',
+  entryPoints: ['node_modules/svelte/compiler.js'],
+  outfile: 'dist/svelte/svelte-compiler.min.js',
   globalName: 'svelte',
 });
 
