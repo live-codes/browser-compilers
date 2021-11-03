@@ -21,7 +21,6 @@ function mkdirp(dir) {
   }
 }
 
-var node_modules = path.resolve(__dirname + '/../node_modules');
 var vendor_modules = path.resolve(__dirname + '/../vendor_modules/src');
 var targetDir = path.resolve(__dirname + '/../dist');
 
