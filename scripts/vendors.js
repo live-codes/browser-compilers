@@ -203,3 +203,11 @@ esbuild.build({
   outfile: 'dist/react-native-web/react-native-web.js',
   format: 'esm',
 });
+
+// Windi CSS
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['vendor_modules/imports/windicss.ts'],
+  outfile: 'dist/windicss/windicss.js',
+  globalName: 'windicss',
+});
