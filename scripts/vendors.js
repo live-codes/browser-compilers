@@ -93,13 +93,6 @@ fs.copyFileSync(
   path.resolve(targetDir + '/pug/pug.min.js'),
 );
 
-// coffeescript
-mkdirp(targetDir + '/coffeescript');
-fs.copyFileSync(
-  path.resolve(vendor_modules + '/coffeescript/coffeescript.js'),
-  path.resolve(targetDir + '/coffeescript/coffeescript.js'),
-);
-
 // postcss
 esbuild.build({
   ...baseOptions,

@@ -1,7 +1,7 @@
 {
   "name": "@live-codes/browser-compilers",
-  "version": "0.4.1",
-  "description": "Compilers that run in the browser",
+  "version": "0.4.2",
+  "description": "Compilers that run in the browser, for use in livecodes.io",
   "author": "Hatem Hosny",
   "license": "MIT",
   "keywords": [],
@@ -29,7 +29,7 @@
     "@esbuild-plugins/node-globals-polyfill": "0.1.0",
     "@esbuild-plugins/node-modules-polyfill": "0.1.1",
     "@mdx-js/mdx": "1.6.22",
-    "@prettier/plugin-pug": "1.17.1",
+    "@prettier/plugin-pug": "1.17.3",
     "@webassemblyjs/wast-refmt": "1.11.1",
     "babel-preset-solid": "1.2.1",
     "less": "4.1.2",
