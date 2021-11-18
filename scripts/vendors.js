@@ -204,3 +204,26 @@ esbuild.build({
   outfile: 'dist/windicss/windicss.js',
   globalName: 'windicss',
 });
+
+// malinajs
+mkdirp(targetDir + '/malinajs');
+fs.copyFileSync(
+  path.resolve(vendor_modules + '/malinajs/acorn.js'),
+  path.resolve(targetDir + '/malinajs/acorn.js'),
+);
+fs.copyFileSync(
+  path.resolve(vendor_modules + '/malinajs/astring.js'),
+  path.resolve(targetDir + '/malinajs/astring.js'),
+);
+fs.copyFileSync(
+  path.resolve(vendor_modules + '/malinajs/cjs2es.js'),
+  path.resolve(targetDir + '/malinajs/cjs2es.js'),
+);
+fs.copyFileSync(
+  path.resolve(vendor_modules + '/malinajs/csstree.js'),
+  path.resolve(targetDir + '/malinajs/csstree.js'),
+);
+fs.copyFileSync(
+  path.resolve(vendor_modules + '/malinajs/malina.js'),
+  path.resolve(targetDir + '/malinajs/malina.js'),
+);
