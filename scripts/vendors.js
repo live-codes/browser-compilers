@@ -204,3 +204,10 @@ esbuild.build({
   outfile: 'dist/windicss/windicss.js',
   globalName: 'windicss',
 });
+
+// JSCPP
+mkdirp(targetDir + '/jscpp');
+fs.copyFileSync(
+  path.resolve(vendor_modules + '/jscpp/JSCPP.es5.min.js'),
+  path.resolve(targetDir + '/jscpp/JSCPP.es5.min.js'),
+);

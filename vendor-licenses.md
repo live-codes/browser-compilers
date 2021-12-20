@@ -10,6 +10,8 @@ clientside-haml-js: [MIT License](https://github.com/uglyog/clientside-haml-js/b
 
 CoffeeScript: [MIT License](https://github.com/jashkenas/coffeescript/tree/07f644c39223e016aceedd2cd71b5941579b5659)
 
+JSCPP: [MIT License](https://github.com/felixhao28/JSCPP/blob/befbd6b48666007151c259c5dd291ab028ad4c04/LICENSE)
+
 Less: [Apache License 2.0](https://github.com/less/less.js/blob/870f9b2d8136bfbcdc9e1293bb0def51b54f9276/LICENSE)
 
 LiveScript: [MIT License](https://github.com/gkz/LiveScript/blob/bd9faa4d484b6abb110473f96c28bf8686e7b7a0/LICENSE)
