@@ -211,3 +211,23 @@ fs.copyFileSync(
   path.resolve(vendor_modules + '/jscpp/JSCPP.es5.min.js'),
   path.resolve(targetDir + '/jscpp/JSCPP.es5.min.js'),
 );
+
+// wacl
+mkdirp(targetDir + '/wacl');
+mkdirp(targetDir + '/wacl/tcl');
+fs.copyFileSync(
+  path.resolve(vendor_modules + '/wacl/tcl/wacl.js'),
+  path.resolve(targetDir + '/wacl/tcl/wacl.js'),
+);
+fs.copyFileSync(
+  path.resolve(vendor_modules + '/wacl/tcl/wacl.wasm'),
+  path.resolve(targetDir + '/wacl/tcl/wacl.wasm'),
+);
+fs.copyFileSync(
+  path.resolve(vendor_modules + '/wacl/tcl/wacl-custom.data'),
+  path.resolve(targetDir + '/wacl/tcl/wacl-custom.data'),
+);
+fs.copyFileSync(
+  path.resolve(vendor_modules + '/wacl/tcl/wacl-library.data'),
+  path.resolve(targetDir + '/wacl/tcl/wacl-library.data'),
+);

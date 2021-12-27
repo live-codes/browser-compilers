@@ -46,6 +46,8 @@ Stylus: [MIT License](https://github.com/stylus/stylus/blob/59bc665db295981d4e3f
 
 Svelte: [MIT License](https://github.com/sveltejs/svelte/blob/dafbdc286eef3de2243088a9a826e6899e20465c/LICENSE)
 
-wasm-refmt:[MIT License](https://github.com/xtuc/webassemblyjs/blob/45f733aa96476d74c8ac57598e13406a48a6fdc8/LICENSE)
+wacl: [BSD 3-Clause License](https://github.com/ecky-l/wacl/blob/9daacabb0102a9986f33263261350edfeebdd83b/LICENSE)
+
+wasm-refmt: [MIT License](https://github.com/xtuc/webassemblyjs/blob/45f733aa96476d74c8ac57598e13406a48a6fdc8/LICENSE)
 
 Windi CSS: [MIT License](https://github.com/windicss/windicss/blob/bcd50d877e62630f191602ddeabd9f677cc6d90c/LICENSE)
