@@ -21,7 +21,7 @@ function mkdirp(dir) {
   }
 }
 
-var vendor_modules = path.resolve(__dirname + '/../vendor_modules/src');
+var vendor_modules_src = path.resolve(__dirname + '/../vendor_modules/src');
 var targetDir = path.resolve(__dirname + '/../dist');
 
 /** @type {Partial<esbuild.BuildOptions>} */
@@ -75,21 +75,21 @@ esbuild.buildSync({
 // asciidoctor.css
 mkdirp(targetDir + '/asciidoctor.css');
 fs.copyFileSync(
-  path.resolve(vendor_modules + '/asciidoctor.css/asciidoctor.css'),
+  path.resolve(vendor_modules_src + '/asciidoctor.css/asciidoctor.css'),
   path.resolve(targetDir + '/asciidoctor.css/asciidoctor.css'),
 );
 
 // stylus
 mkdirp(targetDir + '/stylus');
 fs.copyFileSync(
-  path.resolve(vendor_modules + '/stylus/stylus.min.js'),
+  path.resolve(vendor_modules_src + '/stylus/stylus.min.js'),
   path.resolve(targetDir + '/stylus/stylus.min.js'),
 );
 
 // pug
 mkdirp(targetDir + '/pug');
 fs.copyFileSync(
-  path.resolve(vendor_modules + '/pug/pug.min.js'),
+  path.resolve(vendor_modules_src + '/pug/pug.min.js'),
   path.resolve(targetDir + '/pug/pug.min.js'),
 );
 
@@ -147,7 +147,7 @@ esbuild.buildSync({
 // clientside-haml-js
 mkdirp(targetDir + '/clientside-haml-js');
 fs.copyFileSync(
-  path.resolve(vendor_modules + '/clientside-haml-js/haml.js'),
+  path.resolve(vendor_modules_src + '/clientside-haml-js/haml.js'),
   path.resolve(targetDir + '/clientside-haml-js/haml.js'),
 );
 
@@ -163,12 +163,12 @@ esbuild.build({
 // livescript
 mkdirp(targetDir + '/livescript');
 fs.copyFileSync(
-  path.resolve(vendor_modules + '/livescript/livescript-min.js'),
+  path.resolve(vendor_modules_src + '/livescript/livescript-min.js'),
   path.resolve(targetDir + '/livescript/livescript-min.js'),
 );
 // prelude.ls (livescript base library)
 fs.copyFileSync(
-  path.resolve(vendor_modules + '/livescript/prelude-browser-min.js'),
+  path.resolve(vendor_modules_src + '/livescript/prelude-browser-min.js'),
   path.resolve(targetDir + '/livescript/prelude-browser-min.js'),
 );
 
@@ -208,7 +208,7 @@ esbuild.build({
 // JSCPP
 mkdirp(targetDir + '/jscpp');
 fs.copyFileSync(
-  path.resolve(vendor_modules + '/jscpp/JSCPP.es5.min.js'),
+  path.resolve(vendor_modules_src + '/jscpp/JSCPP.es5.min.js'),
   path.resolve(targetDir + '/jscpp/JSCPP.es5.min.js'),
 );
 
@@ -216,18 +216,25 @@ fs.copyFileSync(
 mkdirp(targetDir + '/wacl');
 mkdirp(targetDir + '/wacl/tcl');
 fs.copyFileSync(
-  path.resolve(vendor_modules + '/wacl/tcl/wacl.js'),
+  path.resolve(vendor_modules_src + '/wacl/tcl/wacl.js'),
   path.resolve(targetDir + '/wacl/tcl/wacl.js'),
 );
 fs.copyFileSync(
-  path.resolve(vendor_modules + '/wacl/tcl/wacl.wasm'),
+  path.resolve(vendor_modules_src + '/wacl/tcl/wacl.wasm'),
   path.resolve(targetDir + '/wacl/tcl/wacl.wasm'),
 );
 fs.copyFileSync(
-  path.resolve(vendor_modules + '/wacl/tcl/wacl-custom.data'),
+  path.resolve(vendor_modules_src + '/wacl/tcl/wacl-custom.data'),
   path.resolve(targetDir + '/wacl/tcl/wacl-custom.data'),
 );
 fs.copyFileSync(
-  path.resolve(vendor_modules + '/wacl/tcl/wacl-library.data'),
+  path.resolve(vendor_modules_src + '/wacl/tcl/wacl-library.data'),
   path.resolve(targetDir + '/wacl/tcl/wacl-library.data'),
+);
+
+// turbopascal
+mkdirp(targetDir + '/turbopascal');
+fs.copyFileSync(
+  path.resolve(vendor_modules_src + '/turbopascal/turbopascal.js'),
+  path.resolve(targetDir + '/turbopascal/turbopascal.js'),
 );
