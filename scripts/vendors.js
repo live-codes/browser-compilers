@@ -238,3 +238,14 @@ fs.copyFileSync(
   path.resolve(vendor_modules_src + '/turbopascal/turbopascal.js'),
   path.resolve(targetDir + '/turbopascal/turbopascal.js'),
 );
+
+// gnuplot
+mkdirp(targetDir + '/gnuplot');
+fs.copyFileSync(
+  path.resolve(vendor_modules_src + '/gnuplot-JS/www/gnuplot.js'),
+  path.resolve(targetDir + '/gnuplot/gnuplot.js'),
+);
+fs.copyFileSync(
+  path.resolve(vendor_modules_src + '/gnuplot-JS/www/gnuplot_api.js'),
+  path.resolve(targetDir + '/gnuplot/gnuplot_api.js'),
+);
