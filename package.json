@@ -1,6 +1,6 @@
 {
   "name": "@live-codes/browser-compilers",
-  "version": "0.4.11",
+  "version": "0.4.12",
   "description": "Compilers that run in the browser, for use in livecodes.io",
   "author": "Hatem Hosny",
   "license": "MIT",
@@ -9,7 +9,7 @@
     "url": "https://github.com/live-codes/browser-compilers"
   },
   "scripts": {
-    "start": "live-server dist --cors",
+    "start": "live-server dist --port=8081 --no-browser --cors",
     "build": "run-s clean build:vendors copy:types",
     "build:vendors": "node ./scripts/vendors.js",
     "copy:types": "recursive-copy vendor_modules/types dist/types",

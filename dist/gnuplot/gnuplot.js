@@ -35,9 +35,31 @@ self.addEventListener('message', function(e) {
       break;
     case 'getFile':
       var file = FS.findObject(name);
-      result['content'] = file.contents || 0;
+      result['content'] = file?.contents || 0;
       self.postMessage(result);
       break;
+    case 'removeFiles':
+      const files = Array.isArray(name) ? name : typeof name === 'string' ? [name] : [];
+      if (files.length === 0) {
+        for (const fs in FS.root.contents) {
+          if (!FS.root.contents[fs].isFolder) {
+            files.push(fs);
+          }
+        }
+      }
+      for (const f of files) {
+        FS.deleteFile(f);
+      }
+      result['content'] = 'OK';
+      self.postMessage(result);
+      break;
+    case 'getFileList':
+      var list = [];
+      for (var nn in FS.root.contents)
+        if (!FS.root.contents[nn].isFolder) list.push(nn);
+      result['content'] = list || 0;
+      self.postMessage(result);
+      break;      
     default:
       result['content'] = 'unknown cmd';
       self.postMessage(result);
