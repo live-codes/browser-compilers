@@ -48,6 +48,10 @@ Stylus: [MIT License](https://github.com/stylus/stylus/blob/59bc665db295981d4e3f
 
 Svelte: [MIT License](https://github.com/sveltejs/svelte/blob/dafbdc286eef3de2243088a9a826e6899e20465c/LICENSE)
 
+svgbob: [Apache License 2.0](https://github.com/ivanceras/svgbob/blob/277f28b337a2d00a61cf342247060cf5fbf88d50/LICENSE)
+
+svgbob-wasm: [Apache License 2.0](https://github.com/agoose77/svgbob-wasm/blob/45e280096ee7f7a07981de2ce95aba343bc94123/LICENSE_APACHE)
+
 turbopascal: [BSD 2-Clause License](https://github.com/MikeRalphson/turbopascal/blob/cfcc5ee6d93f32664bb6127aa751c68841ca5c1d/LICENSE)
 
 wacl: [BSD 3-Clause License](https://github.com/ecky-l/wacl/blob/9daacabb0102a9986f33263261350edfeebdd83b/LICENSE)

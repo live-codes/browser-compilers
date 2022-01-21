@@ -249,3 +249,10 @@ fs.copyFileSync(
   path.resolve(vendor_modules_src + '/gnuplot-JS/www/gnuplot_api.js'),
   path.resolve(targetDir + '/gnuplot/gnuplot_api.js'),
 );
+
+// svgbob-wasm
+mkdirp(targetDir + '/svgbob-wasm');
+fs.copyFileSync(
+  path.resolve(vendor_modules_src + '/svgbob-wasm/svgbob-wasm.js'),
+  path.resolve(targetDir + '/svgbob-wasm/svgbob-wasm.js'),
+);
