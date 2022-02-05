@@ -64,6 +64,28 @@ entryFiles.forEach(async (file) => {
   await parcelBundler.bundle();
 });
 
+// sass
+fs.readFile(path.resolve('node_modules/sass/sass.dart.js'), 'utf8', function (err, data) {
+  if (err) return console.log(err);
+
+  var result = data.replace(
+    'var self = Object.create(dartNodePreambleSelf);',
+    'var self = window;',
+  );
+
+  fs.writeFile(path.resolve('node_modules/sass/sass.dart.js'), result, 'utf8', function (err) {
+    if (err) return console.log(err);
+
+    esbuild.build({
+      ...baseOptions,
+      entryPoints: ['vendor_modules/imports/sass.ts'],
+      outfile: 'dist/sass/sass.js',
+      globalName: 'sass',
+      plugins: nodePolyfills,
+    });
+  });
+});
+
 // Less
 esbuild.buildSync({
   ...baseOptions,

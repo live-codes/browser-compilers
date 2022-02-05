@@ -10,6 +10,8 @@ clientside-haml-js: [MIT License](https://github.com/uglyog/clientside-haml-js/b
 
 CoffeeScript: [MIT License](https://github.com/jashkenas/coffeescript/tree/07f644c39223e016aceedd2cd71b5941579b5659)
 
+dart-sass: [MIT License](https://github.com/sass/dart-sass/blob/e3bf3eb3a3a8708877a86a08c7e3bee92160ac1f/LICENSE)
+
 gnuplot-JS: [MIT License](https://github.com/chhu/gnuplot-JS/blob/62a3c8488ad00c97807ba48ae75738ca3af607fe/LICENSE)
 
 JSCPP: [MIT License](https://github.com/felixhao28/JSCPP/blob/befbd6b48666007151c259c5dd291ab028ad4c04/LICENSE)
