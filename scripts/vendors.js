@@ -4,6 +4,7 @@ var path = require('path');
 const esbuild = require('esbuild');
 const NodeModulesPolyfills = require('@esbuild-plugins/node-modules-polyfill').default;
 const GlobalsPolyfills = require('@esbuild-plugins/node-globals-polyfill').default;
+const ESBuildNodePolyfillsPlugin = require('esbuild-plugin-node-polyfills');
 const Bundler = require('parcel-bundler');
 
 const nodePolyfills = [
@@ -134,13 +135,39 @@ esbuild.build({
 });
 
 // postcss-preset-env
-esbuild.build({
-  ...baseOptions,
-  entryPoints: ['vendor_modules/imports/postcss-preset-env.ts'],
-  outfile: 'dist/postcss-preset-env/postcss-preset-env.js',
-  globalName: 'postcssPresetEnv',
-  plugins: nodePolyfills,
-});
+fs.readFile(
+  path.resolve('node_modules/postcss-custom-properties/dist/index.mjs'),
+  'utf8',
+  function (err, data) {
+    if (err) return console.log(err);
+
+    var result = data
+      .replace(
+        'import{pathToFileURL as r}from"url";',
+        'const r = (path) => new URL(path, "file:");',
+      )
+      .replace(
+        'import{promises as s}from"fs";',
+        'const s = { writeFile: async () => {}, readFile: async () => "" };',
+      );
+    fs.writeFile(
+      path.resolve('node_modules/postcss-custom-properties/dist/index.mjs'),
+      result,
+      'utf8',
+      function (err) {
+        if (err) return console.log(err);
+
+        esbuild.build({
+          ...baseOptions,
+          entryPoints: ['vendor_modules/imports/postcss-preset-env.ts'],
+          outfile: 'dist/postcss-preset-env/postcss-preset-env.js',
+          globalName: 'postcssPresetEnv',
+          plugins: nodePolyfills,
+        });
+      },
+    );
+  },
+);
 
 esbuild.buildSync({
   ...baseOptions,
