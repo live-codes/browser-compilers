@@ -1,2 +1,1 @@
-import mdx from '@mdx-js/mdx';
-export { mdx };
+export { compile } from '@mdx-js/mdx';

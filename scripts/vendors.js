@@ -9,6 +9,8 @@ const GlobalsPolyfills = require('@esbuild-plugins/node-globals-polyfill').defau
 
 const Bundler = require('parcel-bundler');
 
+const { patch } = require('./patch');
+
 const nodePolyfills = [
   NodeModulesPolyfills(),
   GlobalsPolyfills({
@@ -68,24 +70,15 @@ entryFiles.forEach(async (file) => {
 });
 
 // sass
-fs.readFile(path.resolve('node_modules/sass/sass.dart.js'), 'utf8', function (err, data) {
-  if (err) return console.log(err);
-
-  var result = data.replace(
-    'var self = Object.create(dartNodePreambleSelf);',
-    'var self = window;',
-  );
-
-  fs.writeFile(path.resolve('node_modules/sass/sass.dart.js'), result, 'utf8', function (err) {
-    if (err) return console.log(err);
-
-    esbuild.build({
-      ...baseOptions,
-      entryPoints: ['vendor_modules/imports/sass.ts'],
-      outfile: 'dist/sass/sass.js',
-      globalName: 'sass',
-      plugins: nodePolyfills,
-    });
+patch('node_modules/sass/sass.dart.js', {
+  'var self = Object.create(dartNodePreambleSelf);': 'var self = window;',
+}).then(() => {
+  esbuild.build({
+    ...baseOptions,
+    entryPoints: ['vendor_modules/imports/sass.ts'],
+    outfile: 'dist/sass/sass.js',
+    globalName: 'sass',
+    plugins: nodePolyfills,
   });
 });
 
@@ -137,39 +130,19 @@ esbuild.build({
 });
 
 // postcss-preset-env
-fs.readFile(
-  path.resolve('node_modules/postcss-custom-properties/dist/index.mjs'),
-  'utf8',
-  function (err, data) {
-    if (err) return console.log(err);
-
-    var result = data
-      .replace(
-        'import{pathToFileURL as r}from"url";',
-        'const r = (path) => new URL(path, "file:");',
-      )
-      .replace(
-        'import{promises as s}from"fs";',
-        'const s = { writeFile: async () => {}, readFile: async () => "" };',
-      );
-    fs.writeFile(
-      path.resolve('node_modules/postcss-custom-properties/dist/index.mjs'),
-      result,
-      'utf8',
-      function (err) {
-        if (err) return console.log(err);
-
-        esbuild.build({
-          ...baseOptions,
-          entryPoints: ['vendor_modules/imports/postcss-preset-env.ts'],
-          outfile: 'dist/postcss-preset-env/postcss-preset-env.js',
-          globalName: 'postcssPresetEnv',
-          plugins: nodePolyfills,
-        });
-      },
-    );
-  },
-);
+patch('node_modules/postcss-custom-properties/dist/index.mjs', {
+  'import{pathToFileURL as r}from"url";': 'const r = (path) => new URL(path, "file:");',
+  'import{promises as s}from"fs";':
+    'const s = { writeFile: async () => {}, readFile: async () => "" };',
+}).then(() => {
+  esbuild.build({
+    ...baseOptions,
+    entryPoints: ['vendor_modules/imports/postcss-preset-env.ts'],
+    outfile: 'dist/postcss-preset-env/postcss-preset-env.js',
+    globalName: 'postcssPresetEnv',
+    plugins: nodePolyfills,
+  });
+});
 
 // @prettier/plugin-pug
 esbuild.buildSync({
@@ -195,12 +168,17 @@ fs.copyFileSync(
 );
 
 // MDX
-esbuild.build({
-  ...baseOptions,
-  entryPoints: ['vendor_modules/imports/mdx.ts'],
-  outfile: 'dist/mdx/mdx.js',
-  globalName: 'MDX',
-  plugins: nodePolyfills,
+patch('node_modules/@mdx-js/mdx/lib/plugin/recma-document.js', {
+  "import {URL} from 'url'": '',
+}).then(() => {
+  esbuild.build({
+    ...baseOptions,
+    entryPoints: ['vendor_modules/imports/mdx.ts'],
+    outfile: 'dist/mdx/mdx.js',
+    globalName: 'mdx',
+    define: { window: 'globalThis' },
+    plugins: nodePolyfills,
+  });
 });
 
 // livescript
