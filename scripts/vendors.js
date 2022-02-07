@@ -4,7 +4,9 @@ var path = require('path');
 const esbuild = require('esbuild');
 const NodeModulesPolyfills = require('@esbuild-plugins/node-modules-polyfill').default;
 const GlobalsPolyfills = require('@esbuild-plugins/node-globals-polyfill').default;
-const ESBuildNodePolyfillsPlugin = require('esbuild-plugin-node-polyfills');
+// const ESBuildNodePolyfillsPlugin = require('esbuild-plugin-node-polyfills');
+// const { createPlugin } = require('esbuild-plugin-velcro');
+
 const Bundler = require('parcel-bundler');
 
 const nodePolyfills = [
@@ -169,20 +171,12 @@ fs.readFile(
   },
 );
 
+// @prettier/plugin-pug
 esbuild.buildSync({
   ...baseOptions,
   entryPoints: ['node_modules/@prettier/plugin-pug/dist/index.js'],
   outfile: 'dist/prettier/parser-pug.js',
   globalName: 'pluginPug',
-});
-
-// solid
-esbuild.build({
-  ...baseOptions,
-  entryPoints: ['vendor_modules/imports/babel-preset-solid.js'],
-  outfile: 'dist/babel-preset-solid/babel-preset-solid.js',
-  globalName: 'babelPresetSolid',
-  plugins: nodePolyfills,
 });
 
 // svelte
