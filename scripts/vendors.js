@@ -175,10 +175,18 @@ patch('node_modules/@mdx-js/mdx/lib/plugin/recma-document.js', {
     ...baseOptions,
     entryPoints: ['vendor_modules/imports/mdx.ts'],
     outfile: 'dist/mdx/mdx.js',
-    globalName: 'mdx',
+    format: 'esm',
     define: { window: 'globalThis' },
     plugins: nodePolyfills,
   });
+});
+
+// remark-gfm
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['vendor_modules/imports/remark-gfm.js'],
+  outfile: 'dist/remark-gfm/remark-gfm.js',
+  format: 'esm',
 });
 
 // livescript
