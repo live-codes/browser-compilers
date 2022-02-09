@@ -11,7 +11,7 @@ const patch = (
 
       var result = data;
       for (const key of Object.keys(replacements)) {
-        result = result.replace(key, replacements[key]);
+        result = result.split(key).join(replacements[key]);
       }
 
       fs.writeFile(path.resolve(filePath), result, 'utf8', function (err) {
