@@ -4,10 +4,6 @@ var path = require('path');
 const esbuild = require('esbuild');
 const NodeModulesPolyfills = require('@esbuild-plugins/node-modules-polyfill').default;
 const GlobalsPolyfills = require('@esbuild-plugins/node-globals-polyfill').default;
-// const ESBuildNodePolyfillsPlugin = require('esbuild-plugin-node-polyfills');
-// const { createPlugin } = require('esbuild-plugin-velcro');
-
-const Bundler = require('parcel-bundler');
 
 const { patch } = require('./patch');
 
@@ -55,18 +51,12 @@ const entryFiles = [
   'node_modules/monaco-editor/esm/vs/editor/editor.worker.js',
 ];
 
-/** @type {Bundler.ParcelOptions} */
-const options = {
-  outDir: './dist/monaco-editor',
-  minify: true,
-  target: 'browser',
-  sourceMaps: false,
-  watch: false,
-};
-
-entryFiles.forEach(async (file) => {
-  const parcelBundler = new Bundler([file], options);
-  await parcelBundler.bundle();
+entryFiles.forEach((entry) => {
+  esbuild.build({
+    ...baseOptions,
+    entryPoints: [entry],
+    outdir: './dist/monaco-editor',
+  });
 });
 
 // sass
