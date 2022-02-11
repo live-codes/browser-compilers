@@ -59,6 +59,16 @@ entryFiles.forEach((entry) => {
   });
 });
 
+// Monaco languages
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['astro.ts', 'clio.ts', 'imba.ts', 'wat.ts'].map(
+    (entry) => 'vendor_modules/modules/monaco-languages/' + entry,
+  ),
+  format: 'esm',
+  outdir: './dist/monaco-editor/languages',
+});
+
 // sass
 patch('node_modules/sass/sass.dart.js', {
   'var self = Object.create(dartNodePreambleSelf);': 'var self = window;',
