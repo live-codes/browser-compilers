@@ -33,42 +33,6 @@ const baseOptions = {
   define: { global: 'window', 'process.env.NODE_ENV': '"production"' },
 };
 
-// Monaco editor
-esbuild.buildSync({
-  ...baseOptions,
-  entryPoints: ['vendor_modules/imports/monaco-editor.ts'],
-  outfile: 'dist/monaco-editor/monaco-editor.js',
-  loader: { '.ttf': 'file' },
-  format: 'esm',
-});
-
-// Monaco editor workers
-const entryFiles = [
-  'node_modules/monaco-editor/esm/vs/language/json/json.worker.js',
-  'node_modules/monaco-editor/esm/vs/language/css/css.worker.js',
-  'node_modules/monaco-editor/esm/vs/language/html/html.worker.js',
-  'node_modules/monaco-editor/esm/vs/language/typescript/ts.worker.js',
-  'node_modules/monaco-editor/esm/vs/editor/editor.worker.js',
-];
-
-entryFiles.forEach((entry) => {
-  esbuild.build({
-    ...baseOptions,
-    entryPoints: [entry],
-    outdir: './dist/monaco-editor',
-  });
-});
-
-// Monaco languages
-esbuild.build({
-  ...baseOptions,
-  entryPoints: ['astro.ts', 'clio.ts', 'imba.ts', 'wat.ts'].map(
-    (entry) => 'vendor_modules/modules/monaco-languages/' + entry,
-  ),
-  format: 'esm',
-  outdir: './dist/monaco-editor/languages',
-});
-
 // sass
 patch('node_modules/sass/sass.dart.js', {
   'var self = Object.create(dartNodePreambleSelf);': 'var self = window;',
