@@ -49,7 +49,7 @@ patch('node_modules/sass/sass.dart.js', {
 // Eslint
 esbuild.build({
   ...baseOptions,
-  entryPoints: ['node_modules/eslint/lib/linter/linter.js'],
+  entryPoints: ['vendor_modules/imports/eslint.js'],
   outfile: 'dist/eslint/eslint.js',
   globalName: 'eslint',
   plugins: nodePolyfills,
