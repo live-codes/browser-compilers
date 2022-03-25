@@ -46,6 +46,15 @@ patch('node_modules/sass/sass.dart.js', {
   });
 });
 
+// Eslint
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['node_modules/eslint/lib/linter/linter.js'],
+  outfile: 'dist/eslint/eslint.js',
+  globalName: 'eslint',
+  plugins: nodePolyfills,
+});
+
 // Less
 esbuild.buildSync({
   ...baseOptions,
