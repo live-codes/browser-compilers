@@ -5,7 +5,7 @@ const esbuild = require('esbuild');
 const NodeModulesPolyfills = require('@esbuild-plugins/node-modules-polyfill').default;
 const GlobalsPolyfills = require('@esbuild-plugins/node-globals-polyfill').default;
 
-const { patch } = require('./patch');
+const { patch, externalCjsToEsmPlugin } = require('./utils');
 
 const nodePolyfills = [
   NodeModulesPolyfills(),
@@ -257,4 +257,25 @@ mkdirp(targetDir + '/svgbob-wasm');
 fs.copyFileSync(
   path.resolve(vendor_modules_src + '/svgbob-wasm/svgbob-wasm.js'),
   path.resolve(targetDir + '/svgbob-wasm/svgbob-wasm.js'),
+);
+
+// @testing-library
+['dom.js', 'jest-dom.js', 'react.js'].forEach(
+  // entryPoints did not work properly!
+  (mod) => {
+    esbuild
+      .build({
+        ...baseOptions,
+        entryPoints: ['vendor_modules/imports/@testing-library/' + mod],
+        outdir: 'dist/@testing-library/',
+        format: 'esm',
+        plugins: [externalCjsToEsmPlugin(['react'])],
+      })
+      .then(() => {
+        if (mod !== 'jest-dom.js') return;
+        patch('dist/@testing-library/jest-dom.js', {
+          'expect.extend': 'window.jestLite?.core.expect.extend',
+        });
+      });
+  },
 );
