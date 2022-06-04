@@ -279,3 +279,10 @@ fs.copyFileSync(
       });
   },
 );
+
+// lua-fmt
+mkdirp(targetDir + '/lua-fmt');
+fs.copyFileSync(
+  path.resolve(vendor_modules_src + '/lua-fmt/lua-fmt.js'),
+  path.resolve(targetDir + '/lua-fmt/lua-fmt.js'),
+);

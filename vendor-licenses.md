@@ -20,6 +20,8 @@ Less: [Apache License 2.0](https://github.com/less/less.js/blob/870f9b2d8136bfbc
 
 LiveScript: [MIT License](https://github.com/gkz/LiveScript/blob/bd9faa4d484b6abb110473f96c28bf8686e7b7a0/LICENSE)
 
+lua-fmt: [MIT License](https://github.com/trixnz/lua-fmt/blob/3cbb57c38b12b849711286dda4f43b62e09f806d/LICENSE)
+
 MDX: [MIT License](https://github.com/mdx-js/mdx/blob/02509286b5a39d6df233225545cf87e070130588/license)
 
 Monaco-editor: [MIT License](https://github.com/microsoft/monaco-editor/blob/f849d3f2653d1097652a7d9e1d01d242cc225da8/LICENSE.md)
