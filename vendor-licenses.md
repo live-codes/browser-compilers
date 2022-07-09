@@ -12,6 +12,8 @@ CoffeeScript: [MIT License](https://github.com/jashkenas/coffeescript/tree/07f64
 
 dart-sass: [MIT License](https://github.com/sass/dart-sass/blob/e3bf3eb3a3a8708877a86a08c7e3bee92160ac1f/LICENSE)
 
+elkjs-svg: [MIT License](https://github.com/EmilStenstrom/elkjs-svg/blob/4a8709b2407d23218904f523552c565a37764e40/LICENSE)
+
 gnuplot-JS: [MIT License](https://github.com/chhu/gnuplot-JS/blob/62a3c8488ad00c97807ba48ae75738ca3af607fe/LICENSE)
 
 JSCPP: [MIT License](https://github.com/felixhao28/JSCPP/blob/befbd6b48666007151c259c5dd291ab028ad4c04/LICENSE)

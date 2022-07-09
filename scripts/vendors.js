@@ -286,3 +286,12 @@ fs.copyFileSync(
   path.resolve(vendor_modules_src + '/lua-fmt/lua-fmt.js'),
   path.resolve(targetDir + '/lua-fmt/lua-fmt.js'),
 );
+
+// elkjs-svg
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['vendor_modules/imports/elkjs-svg.js'],
+  outfile: 'dist/elkjs-svg/elkjs-svg.js',
+  globalName: 'elksvg',
+  define: { 'require.main': 'undefined' },
+});
