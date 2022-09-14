@@ -295,3 +295,17 @@ esbuild.build({
   globalName: 'elksvg',
   define: { 'require.main': 'undefined' },
 });
+
+// lightningcss
+mkdirp(targetDir + '/lightningcss');
+fs.copyFileSync(
+  path.resolve('node_modules/lightningcss-wasm/lightningcss_node_bg.wasm'),
+  path.resolve(targetDir + '/lightningcss/lightningcss_node_bg.wasm'),
+);
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['vendor_modules/imports/lightningcss.js'],
+  outfile: 'dist/lightningcss/lightningcss.js',
+  globalName: 'lightningcss',
+  define: { 'import.meta.url': 'location' },
+});
