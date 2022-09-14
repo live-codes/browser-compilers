@@ -1,3 +1,3 @@
-import init, { transform, browserslistToTargets } from 'lightningcss-wasm';
+import init, { transform, transformStyleAttribute, browserslistToTargets } from 'lightningcss-wasm';
 
-export { init, transform, browserslistToTargets };
+export { init, transform, transformStyleAttribute, browserslistToTargets };

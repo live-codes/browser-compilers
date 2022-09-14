@@ -20,6 +20,8 @@ JSCPP: [MIT License](https://github.com/felixhao28/JSCPP/blob/befbd6b48666007151
 
 Less: [Apache License 2.0](https://github.com/less/less.js/blob/870f9b2d8136bfbcdc9e1293bb0def51b54f9276/LICENSE)
 
+Lightning CSS: [Mozilla Public License 2.0](https://github.com/parcel-bundler/lightningcss/blob/3c9db12b684f34ea015a287f2a23b728ee5ade85/LICENSE)
+
 LiveScript: [MIT License](https://github.com/gkz/LiveScript/blob/bd9faa4d484b6abb110473f96c28bf8686e7b7a0/LICENSE)
 
 lua-fmt: [MIT License](https://github.com/trixnz/lua-fmt/blob/3cbb57c38b12b849711286dda4f43b62e09f806d/LICENSE)
