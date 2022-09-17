@@ -309,3 +309,12 @@ esbuild.build({
   globalName: 'lightningcss',
   define: { 'import.meta.url': 'location' },
 });
+
+// unocss
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['vendor_modules/imports/unocss.js'],
+  outfile: 'dist/unocss/unocss.js',
+  globalName: 'unocss',
+  plugins: nodePolyfills,
+});

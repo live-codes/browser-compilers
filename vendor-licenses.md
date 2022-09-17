@@ -62,6 +62,8 @@ svgbob-wasm: [Apache License 2.0](https://github.com/agoose77/svgbob-wasm/blob/4
 
 turbopascal: [BSD 2-Clause License](https://github.com/MikeRalphson/turbopascal/blob/cfcc5ee6d93f32664bb6127aa751c68841ca5c1d/LICENSE)
 
+UnoCSS: [MIT License](https://github.com/unocss/unocss/blob/f375524d9bca3f2f8b445b322ec0fc3eb124ec3c/LICENSE)
+
 wacl: [BSD 3-Clause License](https://github.com/ecky-l/wacl/blob/9daacabb0102a9986f33263261350edfeebdd83b/LICENSE)
 
 wasm-refmt: [MIT License](https://github.com/xtuc/webassemblyjs/blob/45f733aa96476d74c8ac57598e13406a48a6fdc8/LICENSE)
