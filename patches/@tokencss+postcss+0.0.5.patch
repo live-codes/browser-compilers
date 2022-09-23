@@ -1,0 +1,13 @@
+diff --git a/node_modules/@tokencss/postcss/dist/config.js b/node_modules/@tokencss/postcss/dist/config.js
+index d8b826f..c1bd7cb 100644
+--- a/node_modules/@tokencss/postcss/dist/config.js
++++ b/node_modules/@tokencss/postcss/dist/config.js
+@@ -1,4 +1,7 @@
+-import load from "@proload/core";
++// import load from "@proload/core";
++const load = async (_, __) => ({});
++load.use = (_) => {};
++
+ load.use([{
+   name: "@proload/plugin-json",
+   extensions: ["json", "jsonc"]

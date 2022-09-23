@@ -318,3 +318,12 @@ esbuild.build({
   globalName: 'unocss',
   plugins: nodePolyfills,
 });
+
+// tokencss
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['vendor_modules/imports/tokencss.js'],
+  outfile: 'dist/tokencss/tokencss.js',
+  globalName: 'tokencss',
+  plugins: nodePolyfills,
+});
