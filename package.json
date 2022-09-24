@@ -1,6 +1,6 @@
 {
   "name": "@live-codes/browser-compilers",
-  "version": "0.5.11",
+  "version": "0.5.12",
   "description": "Compilers that run in the browser, for use in livecodes.io",
   "author": "Hatem Hosny",
   "license": "MIT",
@@ -32,6 +32,7 @@
     "@testing-library/dom": "8.12.0",
     "@testing-library/jest-dom": "5.16.3",
     "@testing-library/react": "12.1.4",
+    "@tokencss/core": "0.1.0",
     "@tokencss/postcss": "0.0.5",
     "@unocss/core": "0.45.21",
     "@unocss/preset-attributify": "0.45.21",
