@@ -1,6 +1,6 @@
 {
   "name": "@live-codes/browser-compilers",
-  "version": "0.5.12",
+  "version": "0.5.13",
   "description": "Compilers that run in the browser, for use in livecodes.io",
   "author": "Hatem Hosny",
   "license": "MIT",
@@ -49,6 +49,7 @@
     "@unocss/transformer-variant-group": "0.45.21",
     "@webassemblyjs/wast-refmt": "1.11.1",
     "babel-preset-solid": "1.3.5",
+    "cssnano-preset-default": "5.2.12",
     "dts-bundle": "0.7.3",
     "elkjs-svg": "0.2.1",
     "esbuild-plugin-cache": "0.2.9",

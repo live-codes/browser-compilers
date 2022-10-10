@@ -327,3 +327,13 @@ esbuild.build({
   globalName: 'tokencss',
   plugins: nodePolyfills,
 });
+
+// cssnano
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['vendor_modules/imports/cssnano.js'],
+  outfile: 'dist/cssnano/cssnano.js',
+  globalName: 'cssnano',
+  plugins: nodePolyfills,
+  define: { __dirname: '""' },
+});
