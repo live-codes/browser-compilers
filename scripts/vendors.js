@@ -31,6 +31,7 @@ const baseOptions = {
   minify: true,
   format: 'iife',
   define: { global: 'window', 'process.env.NODE_ENV': '"production"' },
+  logLevel: 'error',
 };
 
 // sass
@@ -336,4 +337,13 @@ esbuild.build({
   globalName: 'cssnano',
   plugins: nodePolyfills,
   define: { __dirname: '""' },
+});
+
+// purgecss
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['vendor_modules/imports/purgecss.js'],
+  outfile: 'dist/purgecss/purgecss.js',
+  globalName: 'purgecss',
+  plugins: nodePolyfills,
 });
