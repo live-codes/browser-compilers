@@ -1,6 +1,6 @@
 {
   "name": "@live-codes/browser-compilers",
-  "version": "0.5.13",
+  "version": "0.5.14",
   "description": "Compilers that run in the browser, for use in livecodes.io",
   "author": "Hatem Hosny",
   "license": "MIT",
@@ -25,6 +25,7 @@
     "prepush": "run-s fix build"
   },
   "dependencies": {
+    "@danielx/civet": "0.5.86",
     "@esbuild-plugins/node-globals-polyfill": "0.1.1",
     "@esbuild-plugins/node-modules-polyfill": "0.1.4",
     "@fullhuman/postcss-purgecss": "5.0.0",

@@ -347,3 +347,12 @@ esbuild.build({
   globalName: 'purgecss',
   plugins: nodePolyfills,
 });
+
+// Civet
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['vendor_modules/imports/civet.js'],
+  outfile: 'dist/civet/civet.js',
+  globalName: 'civet',
+  plugins: nodePolyfills,
+});
