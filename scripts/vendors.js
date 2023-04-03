@@ -356,3 +356,10 @@ esbuild.build({
   globalName: 'civet',
   plugins: nodePolyfills,
 });
+
+// fennel
+mkdirp(targetDir + '/fennel');
+fs.copyFileSync(
+  path.resolve(vendor_modules_src + '/fennel/fennel.lua'),
+  path.resolve(targetDir + '/fennel/fennel.lua'),
+);
