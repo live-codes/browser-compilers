@@ -363,3 +363,12 @@ fs.copyFileSync(
   path.resolve(vendor_modules_src + '/fennel/fennel.lua'),
   path.resolve(targetDir + '/fennel/fennel.lua'),
 );
+
+// flow-remove-types
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['vendor_modules/imports/flow-remove-types.js'],
+  outfile: 'dist/flow-remove-types/flow-remove-types.js',
+  globalName: 'flowRemoveTypes',
+  plugins: nodePolyfills,
+});

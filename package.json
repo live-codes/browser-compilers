@@ -1,6 +1,6 @@
 {
   "name": "@live-codes/browser-compilers",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Compilers that run in the browser, for use in livecodes.io",
   "author": "Hatem Hosny",
   "license": "MIT",
@@ -57,6 +57,7 @@
     "esbuild-plugin-cache": "0.2.9",
     "esbuild-plugin-velcro": "0.1.1",
     "eslint": "8.11.0",
+    "flow-remove-types": "2.203.1",
     "less": "4.1.2",
     "lightningcss-wasm": "1.14.0",
     "patch-package": "6.4.7",

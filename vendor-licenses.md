@@ -18,6 +18,8 @@ elkjs-svg: [MIT License](https://github.com/EmilStenstrom/elkjs-svg/blob/4a8709b
 
 Fennel: [MIT License](https://git.sr.ht/~technomancy/fennel/tree/e70ebb133b9d472246502dee8be119360ec568ca/item/LICENSE)
 
+flow-remove-types: [MIT License](https://github.com/facebook/flow/blob/3ebee9f08106eb8aefbf98111fee696d333b8456/packages/flow-remove-types/LICENSE)
+
 gnuplot-JS: [MIT License](https://github.com/chhu/gnuplot-JS/blob/62a3c8488ad00c97807ba48ae75738ca3af607fe/LICENSE)
 
 JSCPP: [MIT License](https://github.com/felixhao28/JSCPP/blob/befbd6b48666007151c259c5dd291ab028ad4c04/LICENSE)
