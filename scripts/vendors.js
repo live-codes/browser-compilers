@@ -348,6 +348,15 @@ esbuild.build({
   plugins: nodePolyfills,
 });
 
+// postcss-modules
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['vendor_modules/imports/postcss-modules.js'],
+  outfile: 'dist/postcss-modules/postcss-modules.js',
+  globalName: 'postcssModules',
+  plugins: nodePolyfills,
+});
+
 // Civet
 esbuild.build({
   ...baseOptions,

@@ -1,6 +1,6 @@
 {
   "name": "@live-codes/browser-compilers",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "Compilers that run in the browser, for use in livecodes.io",
   "author": "Hatem Hosny",
   "license": "MIT",
@@ -62,6 +62,7 @@
     "lightningcss-wasm": "1.14.0",
     "patch-package": "6.4.7",
     "postcss": "8.4.6",
+    "postcss-modules": "6.0.0",
     "postcss-preset-env": "7.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
