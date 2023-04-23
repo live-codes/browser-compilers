@@ -44,6 +44,14 @@ PostCSS: [MIT License](https://github.com/postcss/postcss/blob/af8311a9c4c940c3e
 
 PostCSS Preset Env: [CC0-1.0 License](https://github.com/csstools/postcss-preset-env/blob/d7652b1e6196e8f55bf3f0aac4ac090fec7ed54e/LICENSE.md)
 
+postcss-modules: [MIT License](https://github.com/madyankin/postcss-modules/blob/325f0b33f1b746eae7aa827504a5efd0949022ef/LICENSE)
+
+PostHTML: [MIT License](https://github.com/posthtml/posthtml/blob/9feb13c4c05c40519ba56279920aacd3523100cb/license)
+
+posthtml-class-to-css-module: [MIT License](https://github.com/posthtml/posthtml-class-to-css-module/blob/d53bd08c9aa375cde63d9fe86021ee887bc07b9b/license)
+
+posthtml-css-modules: [MIT License](https://github.com/posthtml/posthtml-css-modules/blob/47d2ffa908a9085265fe2a60ef608feed33ebdbd/LICENSE.txt)
+
 prelude<span>.ls</span>: [MIT License](https://github.com/gkz/prelude-ls/blob/41d048799bdd063e0592c1413d238ad95ceda1d9/LICENSE)
 
 Prettier Pug Plugin: [MIT License](https://github.com/prettier/plugin-pug/blob/27ab92b27a062bb187fc33f82b2fad436ec31c25/LICENSE)
