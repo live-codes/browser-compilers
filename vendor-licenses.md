@@ -68,6 +68,8 @@ Stencil: [MIT License](https://github.com/ionic-team/stencil/blob/8d580b12b96cc5
 
 Stylus: [MIT License](https://github.com/stylus/stylus/blob/59bc665db295981d4e3f702e7275c5589a3c6d15/LICENSE)
 
+Sucrase: [MIT License](https://github.com/alangpierce/sucrase/blob/7284b3733aa114b3f4f5371e36ff5a4704ec860e/LICENSE)
+
 Svelte: [MIT License](https://github.com/sveltejs/svelte/blob/dafbdc286eef3de2243088a9a826e6899e20465c/LICENSE)
 
 svgbob: [Apache License 2.0](https://github.com/ivanceras/svgbob/blob/277f28b337a2d00a61cf342247060cf5fbf88d50/LICENSE)

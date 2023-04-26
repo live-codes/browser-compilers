@@ -1,6 +1,6 @@
 {
   "name": "@live-codes/browser-compilers",
-  "version": "0.6.4",
+  "version": "0.6.5",
   "description": "Compilers that run in the browser, for use in livecodes.io",
   "author": "Hatem Hosny",
   "license": "MIT",
@@ -71,6 +71,7 @@
     "react-native-web": "0.19.1",
     "remark-gfm": "3.0.1",
     "sass": "1.49.7",
+    "sucrase": "3.32.0",
     "svelte": "3.44.1",
     "windicss": "3.2.1"
   },

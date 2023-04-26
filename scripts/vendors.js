@@ -381,3 +381,11 @@ esbuild.build({
   globalName: 'flowRemoveTypes',
   plugins: nodePolyfills,
 });
+
+// sucrase
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['vendor_modules/imports/sucrase.js'],
+  outfile: 'dist/sucrase/sucrase.js',
+  globalName: 'sucrase',
+});
