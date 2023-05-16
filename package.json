@@ -1,6 +1,6 @@
 {
   "name": "@live-codes/browser-compilers",
-  "version": "0.6.5",
+  "version": "0.6.6",
   "description": "Compilers that run in the browser, for use in livecodes.io",
   "author": "Hatem Hosny",
   "license": "MIT",
@@ -29,7 +29,7 @@
     "@esbuild-plugins/node-globals-polyfill": "0.1.1",
     "@esbuild-plugins/node-modules-polyfill": "0.1.4",
     "@fullhuman/postcss-purgecss": "5.0.0",
-    "@mdx-js/mdx": "2.0.0",
+    "@mdx-js/mdx": "2.3.0",
     "@prettier/plugin-pug": "1.19.2",
     "@testing-library/dom": "9.2.0",
     "@testing-library/jest-dom": "5.16.5",
