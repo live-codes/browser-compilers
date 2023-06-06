@@ -79,11 +79,13 @@ fs.copyFileSync(
 );
 
 // pug
-mkdirp(targetDir + '/pug');
-fs.copyFileSync(
-  path.resolve(vendor_modules_src + '/pug/pug.min.js'),
-  path.resolve(targetDir + '/pug/pug.min.js'),
-);
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['vendor_modules/imports/pug.js'],
+  outfile: 'dist/pug/pug.min.js',
+  globalName: 'pug',
+  plugins: nodePolyfills,
+});
 
 // postcss
 esbuild.build({
