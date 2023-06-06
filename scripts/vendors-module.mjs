@@ -1,5 +1,5 @@
 import esbuild from 'esbuild';
-import { cache } from 'esbuild-plugin-cache';
+// import { cache } from 'esbuild-plugin-cache';
 
 /** @type {Partial<esbuild.BuildOptions>} */
 const baseOptions = {
@@ -17,5 +17,5 @@ esbuild.build({
   globalName: 'babelPresetSolid',
   define: { global: 'window', 'process.env': '{}' },
 
-  plugins: [cache({})],
+  // plugins: [cache({})],
 });

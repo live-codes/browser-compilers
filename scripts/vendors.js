@@ -96,29 +96,45 @@ esbuild.build({
   plugins: nodePolyfills,
 });
 
-// autoprefixer
-esbuild.build({
-  ...baseOptions,
-  entryPoints: ['vendor_modules/imports/autoprefixer.ts'],
-  outfile: 'dist/autoprefixer/autoprefixer.js',
-  globalName: 'autoprefixer',
-  plugins: nodePolyfills,
-});
+patch('node_modules/browserslist/index.js', {
+  'var jsReleases = require': 'var jsReleases = []; // require',
+})
+  .then(() =>
+    patch('node_modules/postcss-custom-properties/dist/index.mjs', {
+      'import{pathToFileURL as r}from"url";': 'const r = (path) => new URL(path, "file:");',
+      'import{promises as s}from"fs";':
+        'const s = { writeFile: async () => {}, readFile: async () => "" };',
+    }),
+  )
+  .then(() => {
+    // autoprefixer
+    esbuild.build({
+      ...baseOptions,
+      entryPoints: ['vendor_modules/imports/autoprefixer.ts'],
+      outfile: 'dist/autoprefixer/autoprefixer.js',
+      globalName: 'autoprefixer',
+      plugins: nodePolyfills,
+    });
 
-// postcss-preset-env
-patch('node_modules/postcss-custom-properties/dist/index.mjs', {
-  'import{pathToFileURL as r}from"url";': 'const r = (path) => new URL(path, "file:");',
-  'import{promises as s}from"fs";':
-    'const s = { writeFile: async () => {}, readFile: async () => "" };',
-}).then(() => {
-  esbuild.build({
-    ...baseOptions,
-    entryPoints: ['vendor_modules/imports/postcss-preset-env.ts'],
-    outfile: 'dist/postcss-preset-env/postcss-preset-env.js',
-    globalName: 'postcssPresetEnv',
-    plugins: nodePolyfills,
+    // postcss-preset-env
+    esbuild.build({
+      ...baseOptions,
+      entryPoints: ['vendor_modules/imports/postcss-preset-env.ts'],
+      outfile: 'dist/postcss-preset-env/postcss-preset-env.js',
+      globalName: 'postcssPresetEnv',
+      plugins: nodePolyfills,
+    });
+
+    // cssnano
+    esbuild.build({
+      ...baseOptions,
+      entryPoints: ['vendor_modules/imports/cssnano.js'],
+      outfile: 'dist/cssnano/cssnano.js',
+      globalName: 'cssnano',
+      plugins: nodePolyfills,
+      define: { __dirname: '""' },
+    });
   });
-});
 
 // @prettier/plugin-pug
 esbuild.buildSync({
@@ -329,16 +345,6 @@ esbuild.build({
   outfile: 'dist/tokencss/tokencss.js',
   globalName: 'tokencss',
   plugins: nodePolyfills,
-});
-
-// cssnano
-esbuild.build({
-  ...baseOptions,
-  entryPoints: ['vendor_modules/imports/cssnano.js'],
-  outfile: 'dist/cssnano/cssnano.js',
-  globalName: 'cssnano',
-  plugins: nodePolyfills,
-  define: { __dirname: '""' },
 });
 
 // purgecss
