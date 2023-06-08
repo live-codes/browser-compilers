@@ -393,3 +393,12 @@ esbuild.build({
   outfile: 'dist/sucrase/sucrase.js',
   globalName: 'sucrase',
 });
+
+// solid
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['vendor_modules/imports/babel-preset-solid.js'],
+  outfile: 'dist/babel-preset-solid/babel-preset-solid.js',
+  globalName: 'babelPresetSolid',
+  define: { global: 'window', 'process.env': '{}' },
+});
