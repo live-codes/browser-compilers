@@ -65,7 +65,7 @@
     "pug": "3.0.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-native-web": "0.19.1",
+    "react-native-web": "0.19.4",
     "remark-gfm": "3.0.1",
     "sass": "1.62.1",
     "sucrase": "3.32.0",
