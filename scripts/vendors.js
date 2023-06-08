@@ -318,8 +318,8 @@ esbuild.build({
 // lightningcss
 mkdirp(targetDir + '/lightningcss');
 fs.copyFileSync(
-  path.resolve('node_modules/lightningcss-wasm/lightningcss_node_bg.wasm'),
-  path.resolve(targetDir + '/lightningcss/lightningcss_node_bg.wasm'),
+  path.resolve('node_modules/lightningcss-wasm/lightningcss_node.wasm'),
+  path.resolve(targetDir + '/lightningcss/lightningcss_node.wasm'),
 );
 esbuild.build({
   ...baseOptions,
