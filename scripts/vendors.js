@@ -35,16 +35,12 @@ const baseOptions = {
 };
 
 // sass
-patch('node_modules/sass/sass.dart.js', {
-  'var self = Object.create(dartNodePreambleSelf);': 'var self = window;',
-}).then(() => {
-  esbuild.build({
-    ...baseOptions,
-    entryPoints: ['vendor_modules/imports/sass.ts'],
-    outfile: 'dist/sass/sass.js',
-    globalName: 'sass',
-    plugins: nodePolyfills,
-  });
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['vendor_modules/imports/sass.ts'],
+  outfile: 'dist/sass/sass.js',
+  globalName: 'sass',
+  platform: 'browser',
 });
 
 // Eslint
