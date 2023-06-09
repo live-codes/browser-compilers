@@ -402,3 +402,11 @@ esbuild.build({
   globalName: 'babelPresetSolid',
   define: { global: 'window', 'process.env': '{}' },
 });
+
+// tailwindcss-plugins
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['vendor_modules/imports/tailwindcss-plugins.js'],
+  outfile: 'dist/tailwindcss-plugins/tailwindcss-plugins.js',
+  globalName: 'tailwindcssPlugins',
+});
