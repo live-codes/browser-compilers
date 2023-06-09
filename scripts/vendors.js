@@ -74,14 +74,27 @@ fs.copyFileSync(
   path.resolve(targetDir + '/stylus/stylus.min.js'),
 );
 
-// pug
-esbuild.build({
-  ...baseOptions,
-  entryPoints: ['vendor_modules/imports/pug.js'],
-  outfile: 'dist/pug/pug.min.js',
-  globalName: 'pug',
-  plugins: nodePolyfills,
-});
+patch('node_modules/is-core-module/index.js', {
+  "throw new TypeError(typeof nodeVersion === 'undefined' ? 'Unable to determine current node version' : 'If provided, a valid node version is required');":
+    "return false; // throw new TypeError(typeof nodeVersion === 'undefined' ? 'Unable to determine current node version' : 'If provided, a valid node version is required');",
+})
+  .then(() =>
+    // pug
+    esbuild.build({
+      ...baseOptions,
+      entryPoints: ['vendor_modules/imports/pug.js'],
+      outfile: 'dist/pug/pug.min.js',
+      globalName: 'pug',
+      plugins: nodePolyfills,
+      sourcemap: 'inline',
+    }),
+  )
+  .then(() => {
+    patch('node_modules/is-core-module/index.js', {
+      "return false; // throw new TypeError(typeof nodeVersion === 'undefined' ? 'Unable to determine current node version' : 'If provided, a valid node version is required');":
+        "throw new TypeError(typeof nodeVersion === 'undefined' ? 'Unable to determine current node version' : 'If provided, a valid node version is required');",
+    });
+  });
 
 // postcss
 esbuild.build({
