@@ -51,6 +51,7 @@
     "@unocss/transformer-directives": "0.53.1",
     "@unocss/transformer-variant-group": "0.53.1",
     "@webassemblyjs/wast-refmt": "1.11.6",
+    "assemblyscript": "0.27.5",
     "autoprefixer": "10.4.14",
     "babel-preset-solid": "1.7.4",
     "cssnano-preset-default": "6.0.1",

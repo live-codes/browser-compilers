@@ -4,6 +4,8 @@ This is a list of software packages with included source code (sorted alphabetic
 
 asciidoctor-skins: [MIT License](https://github.com/darshandsoni/asciidoctor-skins/blob/c98a8ab9b27571e5b63d75912a3c753cc72ed8e4/LICENSE)
 
+AssemblyScript: [Apache License 2.0](https://github.com/AssemblyScript/assemblyscript/blob/a0c27fadd027a32542420160deff04dc31e10f59/LICENSE)
+
 Autoprefixer: [MIT License](https://github.com/postcss/autoprefixer/blob/61f71e9a8613b0c90357472d58fdcce26324ef4f/LICENSE)
 
 Civet: [MIT License](https://github.com/DanielXMoore/Civet/blob/9b28e3a351d130ce031c7b28b50bcb6d2a499315/LICENSE)

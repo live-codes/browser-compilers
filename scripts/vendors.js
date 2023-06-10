@@ -429,3 +429,31 @@ esbuild.build({
   outfile: 'dist/tailwindcss-plugins/tailwindcss-plugins.js',
   globalName: 'tailwindcssPlugins',
 });
+
+// assemblyscript
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['vendor_modules/imports/assemblyscript.js'],
+  outfile: 'dist/assemblyscript/assemblyscript.esm.js',
+  format: 'esm',
+  plugins: nodePolyfills,
+}).then(() => {
+  // workaround for top level await in iife bundle
+  // https://github.com/evanw/esbuild/issues/253
+  const content = fs.readFileSync(path.resolve('dist/assemblyscript/assemblyscript.esm.js'), 'utf8');
+  const patchedContent = 'self.assemblyscriptLoaded = (async() => {self.window = self;' +
+    content.replace(/export{(\w{1,3}) as asc};/g, (_, token) => {
+      return `self.assemblyscript={asc:${token}};})();`;
+    });
+  fs.writeFileSync(path.resolve('dist/assemblyscript/assemblyscript.patched.js'), patchedContent, 'utf8');
+
+  esbuild.build({
+    ...baseOptions,
+    entryPoints: ['dist/assemblyscript/assemblyscript.patched.js'],
+    outfile: 'dist/assemblyscript/assemblyscript.js',
+    platform: 'browser',
+  }).then(() => {
+    fs.unlinkSync(path.resolve('dist/assemblyscript/assemblyscript.esm.js'));
+    fs.unlinkSync(path.resolve('dist/assemblyscript/assemblyscript.patched.js'));
+  });
+});
