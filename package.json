@@ -1,6 +1,6 @@
 {
   "name": "@live-codes/browser-compilers",
-  "version": "0.7.4",
+  "version": "0.7.5",
   "description": "Compilers that run in the browser, for use in livecodes.io",
   "author": "Hatem Hosny",
   "license": "MIT",
