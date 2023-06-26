@@ -469,3 +469,11 @@ esbuild
         fs.unlinkSync(path.resolve('dist/assemblyscript/assemblyscript.patched.js'));
       });
   });
+
+// @vue/compiler-sfc
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['vendor_modules/imports/vue-compiler-sfc.js'],
+  outfile: 'dist/vue-compiler-sfc/vue-compiler-sfc.js',
+  globalName: 'VueCompilerSFC',
+});
