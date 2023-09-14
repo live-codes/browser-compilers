@@ -308,7 +308,7 @@ fs.copyFileSync(
       .then(() => {
         if (mod !== 'jest-dom.js') return;
         patch('dist/@testing-library/jest-dom.js', {
-          'expect.extend': 'window.jestLite?.core.expect.extend',
+          'expect.extend': 'window.browserJest?.expect.extend',
         });
       });
   },
