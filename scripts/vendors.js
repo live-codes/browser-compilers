@@ -477,3 +477,18 @@ esbuild.build({
   outfile: 'dist/vue-compiler-sfc/vue-compiler-sfc.js',
   globalName: 'VueCompilerSFC',
 });
+
+// php-wasm
+esbuild
+  .build({
+    ...baseOptions,
+    entryPoints: ['vendor_modules/imports/php-wasm.js'],
+    outfile: 'dist/php-wasm/php-wasm.js',
+    globalName: 'phpWasm',
+  })
+  .then(() => {
+    fs.copyFileSync(
+      path.resolve('node_modules/php-wasm/php-web.wasm'),
+      path.resolve(targetDir + '/php-wasm/php-web.wasm'),
+    );
+  });
