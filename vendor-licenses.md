@@ -8,6 +8,8 @@ AssemblyScript: [Apache License 2.0](https://github.com/AssemblyScript/assemblys
 
 Autoprefixer: [MIT License](https://github.com/postcss/autoprefixer/blob/61f71e9a8613b0c90357472d58fdcce26324ef4f/LICENSE)
 
+BBob: [MIT License](https://github.com/JiLiZART/BBob/blob/17edb9e3e6572e72ab9cb042d86e2215c60afa86/LICENSE)
+
 Civet: [MIT License](https://github.com/DanielXMoore/Civet/blob/9b28e3a351d130ce031c7b28b50bcb6d2a499315/LICENSE)
 
 clientside-haml-js: [MIT License](https://github.com/uglyog/clientside-haml-js/blob/d814d16f46e1629c149c18d7692ba16f249f436b/LICENSE)

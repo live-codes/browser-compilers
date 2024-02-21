@@ -492,3 +492,11 @@ esbuild
       path.resolve(targetDir + '/php-wasm/php-web.wasm'),
     );
   });
+
+// bbob
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['vendor_modules/imports/bbob.js'],
+  outfile: 'dist/bbob/bbob.js',
+  globalName: 'BBob',
+});
