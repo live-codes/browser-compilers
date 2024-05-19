@@ -1,6 +1,6 @@
 {
   "name": "@live-codes/browser-compilers",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "Compilers that run in the browser, for use in livecodes.io",
   "author": "Hatem Hosny",
   "license": "MIT",
@@ -39,6 +39,8 @@
     "@testing-library/react": "14.0.0",
     "@tokencss/core": "0.1.0",
     "@tokencss/postcss": "0.0.5",
+    "@typescript/ata": "0.9.4",
+    "@typescript/vfs": "1.5.0",
     "@unocss/core": "0.53.1",
     "@unocss/preset-attributify": "0.53.1",
     "@unocss/preset-icons": "0.53.1",
@@ -103,7 +105,7 @@
     "postcss-cli": "8.3.1",
     "recursive-fs": "2.1.0",
     "standard-version": "9.3.0",
-    "typescript": "4.4.3"
+    "typescript": "4.4.4"
   },
   "config": {
     "commitizen": {

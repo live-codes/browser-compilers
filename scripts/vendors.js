@@ -500,3 +500,19 @@ esbuild.build({
   outfile: 'dist/bbob/bbob.js',
   globalName: 'BBob',
 });
+
+// @typescript/ata
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['vendor_modules/imports/typescript-ata.js'],
+  outfile: 'dist/typescript-ata/typescript-ata.js',
+  globalName: 'typescriptATA',
+});
+
+// @typescript/ata
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['vendor_modules/imports/typescript-vfs.js'],
+  outfile: 'dist/typescript-vfs/typescript-vfs.js',
+  globalName: 'typescriptVFS',
+});
