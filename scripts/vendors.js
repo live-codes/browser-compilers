@@ -146,10 +146,6 @@ patch('node_modules/browserslist/index.js', {
     });
   });
 
-// patch('node_modules/@prettier/plugin-pug/dist/printer.js', {
-//   'const node_util_1 = require("node:util");':
-//     'const node_util_1 = {types: {isNativeError: () => false}};',
-// }).then(() =>
 // @prettier/plugin-pug
 esbuild.build({
   ...baseOptions,
@@ -157,7 +153,6 @@ esbuild.build({
   outfile: 'dist/prettier/parser-pug.js',
   globalName: 'pluginPug',
 });
-// );
 
 // svelte
 esbuild.build({
