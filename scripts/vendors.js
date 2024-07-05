@@ -13,7 +13,6 @@ const nodePolyfills = [
   // GlobalsPolyfills({
   //   process: true,
   //   buffer: true,
-  //   define: { global: 'window', 'process.env.NODE_ENV': '"production"' },
   // }),
   polyfillNode({
     // polyfills: {
@@ -55,6 +54,13 @@ esbuild.build({
   outfile: 'dist/sass/sass.js',
   globalName: 'sass',
   platform: 'browser',
+  plugins: [
+    NodeModulesPolyfills(),
+    GlobalsPolyfills({
+      process: true,
+      buffer: true,
+    }),
+  ],
 });
 
 // Eslint
