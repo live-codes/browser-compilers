@@ -55,7 +55,7 @@
     "@unocss/transformer-directives": "0.61.2",
     "@unocss/transformer-variant-group": "0.61.2",
     "@vue/compiler-sfc": "3.4.31",
-    "@webassemblyjs/wast-refmt": "1.11.6",
+    "@webassemblyjs/wast-refmt": "1.12.1",
     "assemblyscript": "0.27.28",
     "autoprefixer": "10.4.19",
     "babel-preset-solid": "1.8.18",
