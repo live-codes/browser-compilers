@@ -514,10 +514,11 @@ esbuild.build({
   globalName: 'typescriptATA',
 });
 
-// @typescript/ata
+// @typescript/vfs
 esbuild.build({
   ...baseOptions,
   entryPoints: ['vendor_modules/imports/typescript-vfs.js'],
   outfile: 'dist/typescript-vfs/typescript-vfs.js',
   globalName: 'typescriptVFS',
+  plugins: nodePolyfills,
 });
