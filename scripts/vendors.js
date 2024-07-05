@@ -385,6 +385,23 @@ esbuild.build({
 });
 
 // Civet
+// patch createRequire
+(() => {
+  const content = fs.readFileSync(
+    path.resolve('node_modules/@danielx/civet/dist/main.mjs'),
+    'utf8',
+  );
+  if (content.includes('// context.require = createRequire')) return;
+  const patchedContent = content.replace(
+    'context.require = createRequire',
+    '// context.require = createRequire',
+  );
+  fs.writeFileSync(
+    path.resolve('node_modules/@danielx/civet/dist/main.mjs'),
+    patchedContent,
+    'utf8',
+  );
+})();
 esbuild.build({
   ...baseOptions,
   entryPoints: ['vendor_modules/imports/civet.js'],
