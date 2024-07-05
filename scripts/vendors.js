@@ -30,7 +30,12 @@ const baseOptions = {
   bundle: true,
   minify: true,
   format: 'iife',
-  define: { global: 'window', 'process.env.NODE_ENV': '"production"' },
+  define: {
+    global: 'window',
+    'process.env.NODE_ENV': '"production"',
+    __dirname: '""',
+    __filename: '""',
+  },
   logLevel: 'error',
 };
 
@@ -141,7 +146,6 @@ patch('node_modules/browserslist/index.js', {
       outfile: 'dist/cssnano/cssnano.js',
       globalName: 'cssnano',
       plugins: nodePolyfills,
-      define: { __dirname: '""', __filename: '""' },
     });
   });
 
