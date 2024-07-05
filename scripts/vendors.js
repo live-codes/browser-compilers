@@ -489,11 +489,12 @@ esbuild
     entryPoints: ['vendor_modules/imports/php-wasm.js'],
     outfile: 'dist/php-wasm/php-wasm.js',
     globalName: 'phpWasm',
+    plugins: nodePolyfills,
   })
   .then(() => {
     fs.copyFileSync(
-      path.resolve('node_modules/php-wasm/php-web.wasm'),
-      path.resolve(targetDir + '/php-wasm/php-web.wasm'),
+      path.resolve('node_modules/php-wasm/php-web.js.wasm'),
+      path.resolve(targetDir + '/php-wasm/php-web.js.wasm'),
     );
   });
 
