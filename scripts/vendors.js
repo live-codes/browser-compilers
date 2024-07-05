@@ -87,26 +87,20 @@ fs.copyFileSync(
   path.resolve(targetDir + '/stylus/stylus.min.js'),
 );
 
-patch('node_modules/is-core-module/index.js', {
-  "throw new TypeError(typeof nodeVersion === 'undefined' ? 'Unable to determine current node version' : 'If provided, a valid node version is required');":
-    "return false; // throw new TypeError(typeof nodeVersion === 'undefined' ? 'Unable to determine current node version' : 'If provided, a valid node version is required');",
-})
-  .then(() =>
-    // pug
-    esbuild.build({
-      ...baseOptions,
-      entryPoints: ['vendor_modules/imports/pug.js'],
-      outfile: 'dist/pug/pug.min.js',
-      globalName: 'pug',
-      sourcemap: 'inline',
+// pug
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['vendor_modules/imports/pug.js'],
+  outfile: 'dist/pug/pug.min.js',
+  globalName: 'pug',
+  plugins: [
+    NodeModulesPolyfills(),
+    GlobalsPolyfills({
+      process: true,
+      buffer: true,
     }),
-  )
-  .then(() => {
-    patch('node_modules/is-core-module/index.js', {
-      "return false; // throw new TypeError(typeof nodeVersion === 'undefined' ? 'Unable to determine current node version' : 'If provided, a valid node version is required');":
-        "throw new TypeError(typeof nodeVersion === 'undefined' ? 'Unable to determine current node version' : 'If provided, a valid node version is required');",
-    });
-  });
+  ],
+});
 
 // postcss
 esbuild.build({
@@ -152,18 +146,18 @@ patch('node_modules/browserslist/index.js', {
     });
   });
 
-patch('node_modules/@prettier/plugin-pug/dist/printer.js', {
-  'const node_util_1 = require("node:util");':
-    'const node_util_1 = {types: {isNativeError: () => false}};',
-}).then(() =>
-  // @prettier/plugin-pug
-  esbuild.build({
-    ...baseOptions,
-    entryPoints: ['node_modules/@prettier/plugin-pug/dist/index.js'],
-    outfile: 'dist/prettier/parser-pug.js',
-    globalName: 'pluginPug',
-  }),
-);
+// patch('node_modules/@prettier/plugin-pug/dist/printer.js', {
+//   'const node_util_1 = require("node:util");':
+//     'const node_util_1 = {types: {isNativeError: () => false}};',
+// }).then(() =>
+// @prettier/plugin-pug
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['node_modules/@prettier/plugin-pug/dist/index.js'],
+  outfile: 'dist/prettier/parser-pug.js',
+  globalName: 'pluginPug',
+});
+// );
 
 // svelte
 esbuild.build({
