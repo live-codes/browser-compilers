@@ -78,7 +78,7 @@
     "react-dom": "18.2.0",
     "react-native-web": "0.19.12",
     "remark-gfm": "4.0.0",
-    "sass": "1.63.6",
+    "sass": "1.77.6",
     "sucrase": "3.32.0",
     "svelte": "4.0.0",
     "windicss": "3.5.6"
