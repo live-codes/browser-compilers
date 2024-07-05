@@ -4,16 +4,18 @@ var path = require('path');
 const esbuild = require('esbuild');
 const NodeModulesPolyfills = require('@esbuild-plugins/node-modules-polyfill').default;
 const GlobalsPolyfills = require('@esbuild-plugins/node-globals-polyfill').default;
+const { polyfillNode } = require('esbuild-plugin-polyfill-node');
 
 const { patch, externalCjsToEsmPlugin } = require('./utils');
 
 const nodePolyfills = [
-  NodeModulesPolyfills(),
-  GlobalsPolyfills({
-    process: true,
-    buffer: true,
-    define: { global: 'window', 'process.env.NODE_ENV': '"production"' },
-  }),
+  // NodeModulesPolyfills(),
+  // GlobalsPolyfills({
+  //   process: true,
+  //   buffer: true,
+  //   define: { global: 'window', 'process.env.NODE_ENV': '"production"' },
+  // }),
+  polyfillNode(),
 ];
 
 function mkdirp(dir) {
@@ -24,6 +26,7 @@ function mkdirp(dir) {
 
 var vendor_modules_src = path.resolve(__dirname + '/../vendor_modules/src');
 var targetDir = path.resolve(__dirname + '/../dist');
+mkdirp(targetDir);
 
 /** @type {Partial<esbuild.BuildOptions>} */
 const baseOptions = {
@@ -37,6 +40,7 @@ const baseOptions = {
     __filename: '""',
   },
   logLevel: 'error',
+  plugins: nodePolyfills,
 };
 
 // sass
@@ -54,11 +58,10 @@ esbuild.build({
   entryPoints: ['vendor_modules/imports/eslint.js'],
   outfile: 'dist/eslint/eslint.js',
   globalName: 'eslint',
-  plugins: nodePolyfills,
 });
 
 // Less
-esbuild.buildSync({
+esbuild.build({
   ...baseOptions,
   entryPoints: ['vendor_modules/imports/less.js'],
   outfile: 'dist/less/less.js',
@@ -90,7 +93,6 @@ patch('node_modules/is-core-module/index.js', {
       entryPoints: ['vendor_modules/imports/pug.js'],
       outfile: 'dist/pug/pug.min.js',
       globalName: 'pug',
-      plugins: nodePolyfills,
       sourcemap: 'inline',
     }),
   )
@@ -107,7 +109,6 @@ esbuild.build({
   entryPoints: ['vendor_modules/imports/postcss.ts'],
   outfile: 'dist/postcss/postcss.js',
   globalName: 'postcss',
-  plugins: nodePolyfills,
 });
 
 patch('node_modules/browserslist/index.js', {
@@ -127,7 +128,6 @@ patch('node_modules/browserslist/index.js', {
       entryPoints: ['vendor_modules/imports/autoprefixer.ts'],
       outfile: 'dist/autoprefixer/autoprefixer.js',
       globalName: 'autoprefixer',
-      plugins: nodePolyfills,
     });
 
     // postcss-preset-env
@@ -136,7 +136,6 @@ patch('node_modules/browserslist/index.js', {
       entryPoints: ['vendor_modules/imports/postcss-preset-env.ts'],
       outfile: 'dist/postcss-preset-env/postcss-preset-env.js',
       globalName: 'postcssPresetEnv',
-      plugins: nodePolyfills,
     });
 
     // cssnano
@@ -145,7 +144,6 @@ patch('node_modules/browserslist/index.js', {
       entryPoints: ['vendor_modules/imports/cssnano.js'],
       outfile: 'dist/cssnano/cssnano.js',
       globalName: 'cssnano',
-      plugins: nodePolyfills,
     });
   });
 
@@ -159,12 +157,11 @@ patch('node_modules/@prettier/plugin-pug/dist/printer.js', {
     entryPoints: ['node_modules/@prettier/plugin-pug/dist/index.js'],
     outfile: 'dist/prettier/parser-pug.js',
     globalName: 'pluginPug',
-    plugins: nodePolyfills,
   }),
 );
 
 // svelte
-esbuild.buildSync({
+esbuild.build({
   ...baseOptions,
   entryPoints: ['node_modules/svelte/compiler.cjs'],
   outfile: 'dist/svelte/svelte-compiler.min.js',
@@ -188,7 +185,6 @@ patch('node_modules/@mdx-js/mdx/lib/plugin/recma-document.js', {
     outfile: 'dist/mdx/mdx.js',
     format: 'esm',
     define: { window: 'globalThis' },
-    plugins: nodePolyfills,
   });
 });
 
@@ -213,7 +209,7 @@ fs.copyFileSync(
 );
 
 // perlito
-esbuild.buildSync({
+esbuild.build({
   minify: true,
   entryPoints: ['vendor_modules/src/perlito/perlito5.js'],
   outfile: 'dist/perlito/perlito5.min.js',
@@ -222,7 +218,7 @@ esbuild.buildSync({
 });
 
 // wast-refmt
-esbuild.buildSync({
+esbuild.build({
   ...baseOptions,
   entryPoints: ['vendor_modules/imports/wast-refmt.ts'],
   outfile: 'dist/wast-refmt/wast-refmt.js',
@@ -354,7 +350,6 @@ esbuild.build({
   entryPoints: ['vendor_modules/imports/unocss.js'],
   outfile: 'dist/unocss/unocss.js',
   globalName: 'unocss',
-  plugins: nodePolyfills,
 });
 
 // tokencss
@@ -363,7 +358,6 @@ esbuild.build({
   entryPoints: ['vendor_modules/imports/tokencss.js'],
   outfile: 'dist/tokencss/tokencss.js',
   globalName: 'tokencss',
-  plugins: nodePolyfills,
 });
 
 // purgecss
@@ -372,7 +366,6 @@ esbuild.build({
   entryPoints: ['vendor_modules/imports/purgecss.js'],
   outfile: 'dist/purgecss/purgecss.js',
   globalName: 'purgecss',
-  plugins: nodePolyfills,
 });
 
 // postcss-modules
@@ -381,7 +374,6 @@ esbuild.build({
   entryPoints: ['vendor_modules/imports/postcss-modules.js'],
   outfile: 'dist/postcss-modules/postcss-modules.js',
   globalName: 'postcssModules',
-  plugins: nodePolyfills,
 });
 
 // Civet
@@ -407,7 +399,6 @@ esbuild.build({
   entryPoints: ['vendor_modules/imports/civet.js'],
   outfile: 'dist/civet/civet.js',
   globalName: 'civet',
-  plugins: nodePolyfills,
 });
 
 // fennel
@@ -423,7 +414,6 @@ esbuild.build({
   entryPoints: ['vendor_modules/imports/flow-remove-types.js'],
   outfile: 'dist/flow-remove-types/flow-remove-types.js',
   globalName: 'flowRemoveTypes',
-  plugins: nodePolyfills,
 });
 
 // sucrase
@@ -458,7 +448,6 @@ esbuild
     entryPoints: ['vendor_modules/imports/assemblyscript.js'],
     outfile: 'dist/assemblyscript/assemblyscript.esm.js',
     format: 'esm',
-    plugins: nodePolyfills,
   })
   .then(() => {
     // workaround for top level await in iife bundle
@@ -506,7 +495,6 @@ esbuild
     entryPoints: ['vendor_modules/imports/php-wasm.js'],
     outfile: 'dist/php-wasm/php-wasm.js',
     globalName: 'phpWasm',
-    plugins: nodePolyfills,
   })
   .then(() => {
     fs.copyFileSync(
@@ -537,5 +525,4 @@ esbuild.build({
   entryPoints: ['vendor_modules/imports/typescript-vfs.js'],
   outfile: 'dist/typescript-vfs/typescript-vfs.js',
   globalName: 'typescriptVFS',
-  plugins: nodePolyfills,
 });

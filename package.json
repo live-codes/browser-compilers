@@ -91,6 +91,7 @@
     "@typescript-eslint/parser": "5.16.0",
     "cz-conventional-changelog": "3.2.0",
     "esbuild": "0.23.0",
+    "esbuild-plugin-polyfill-node": "0.3.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-import": "2.25.4",
     "eslint-plugin-jest": "26.1.3",
