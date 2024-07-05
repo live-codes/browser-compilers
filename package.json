@@ -27,7 +27,7 @@
     "@danielx/civet": "0.7.15",
     "@esbuild-plugins/node-globals-polyfill": "0.2.3",
     "@esbuild-plugins/node-modules-polyfill": "0.2.2",
-    "@fullhuman/postcss-purgecss": "5.0.0",
+    "@fullhuman/postcss-purgecss": "6.0.0",
     "@mdx-js/mdx": "3.0.1",
     "@prettier/plugin-pug": "2.5.1",
     "@tailwindcss/aspect-ratio": "0.4.2",

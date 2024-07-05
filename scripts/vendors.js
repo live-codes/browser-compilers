@@ -15,7 +15,12 @@ const nodePolyfills = [
   //   buffer: true,
   //   define: { global: 'window', 'process.env.NODE_ENV': '"production"' },
   // }),
-  polyfillNode(),
+  polyfillNode({
+    // polyfills: {
+    //   fs: true,
+    //   'fs/promises': true,
+    // },
+  }),
 ];
 
 function mkdirp(dir) {
@@ -366,6 +371,14 @@ esbuild.build({
   entryPoints: ['vendor_modules/imports/purgecss.js'],
   outfile: 'dist/purgecss/purgecss.js',
   globalName: 'purgecss',
+  plugins: [
+    polyfillNode({
+      polyfills: {
+        fs: true,
+        'fs/promises': true,
+      },
+    }),
+  ],
 });
 
 // postcss-modules
