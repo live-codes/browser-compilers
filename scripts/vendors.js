@@ -517,3 +517,19 @@ esbuild.build({
   outfile: 'dist/typescript-vfs/typescript-vfs.js',
   globalName: 'typescriptVFS',
 });
+
+// vento
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['vendor_modules/imports/vento.js'],
+  outfile: 'dist/vento/vento.js',
+  globalName: 'vento',
+  plugins: [
+    polyfillNode({
+      polyfills: {
+        fs: true,
+        'fs/promises': true,
+      },
+    }),
+  ],
+});
