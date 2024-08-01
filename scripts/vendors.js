@@ -422,6 +422,13 @@ esbuild.build({
   outfile: 'dist/babel-preset-solid/babel-preset-solid.js',
   globalName: 'babelPresetSolid',
   define: { global: 'window', 'process.env': '{}' },
+  plugins: [
+    NodeModulesPolyfills(),
+    GlobalsPolyfills({
+      process: true,
+      buffer: true,
+    }),
+  ],
 });
 
 // tailwindcss-plugins
