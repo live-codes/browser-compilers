@@ -431,6 +431,26 @@ esbuild.build({
   ],
 });
 
+// react compiler
+patch('node_modules/babel-plugin-react-compiler/dist/index.js', {
+  'require.resolve': 'void',
+}).then(() => {
+  esbuild.build({
+    ...baseOptions,
+    entryPoints: ['vendor_modules/imports/babel-plugin-react-compiler.js'],
+    outfile: 'dist/babel-plugin-react-compiler/babel-plugin-react-compiler.js',
+    globalName: 'reactCompiler',
+    define: { global: 'window', 'process.env': '{}' },
+    plugins: [
+      NodeModulesPolyfills(),
+      GlobalsPolyfills({
+        process: true,
+        buffer: true,
+      }),
+    ],
+  });
+});
+
 // tailwindcss-plugins
 esbuild.build({
   ...baseOptions,
