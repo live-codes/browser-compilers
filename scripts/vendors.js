@@ -294,7 +294,7 @@ fs.copyFileSync(
 );
 
 // @testing-library
-['dom.js', 'jest-dom.js', 'react.js'].forEach(
+['dom.js', 'jest-dom.js', 'react.js', 'react-pure.js', 'user-event.js'].forEach(
   // entryPoints did not work properly!
   (mod) => {
     esbuild
@@ -303,7 +303,10 @@ fs.copyFileSync(
         entryPoints: ['vendor_modules/imports/@testing-library/' + mod],
         outdir: 'dist/@testing-library/',
         format: 'esm',
-        plugins: [externalCjsToEsmPlugin(['react'])],
+        define: {
+          'process.env.NODE_ENV': '"development"',
+        },
+        external: ['react', 'react-dom'],
       })
       .then(() => {
         if (mod !== 'jest-dom.js') return;
