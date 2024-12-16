@@ -564,11 +564,49 @@ esbuild.build({
   ],
 });
 
-// codemirror-theme-catppuccin
-esbuild.build({
-  ...baseOptions,
-  entryPoints: ['vendor_modules/imports/codemirror-theme-catppuccin.js'],
-  outfile: 'dist/codemirror-theme-catppuccin/codemirror-theme-catppuccin.js',
-  format: 'esm',
-  external: ['@codemirror/view', '@codemirror/language', '@lezer/highlight'],
-});
+// catppuccin
+esbuild
+  .build({
+    ...baseOptions,
+    entryPoints: ['vendor_modules/imports/codemirror-theme-catppuccin.js'],
+    outfile: 'dist/catppuccin/codemirror/codemirror-theme-catppuccin.js',
+    format: 'esm',
+    external: ['@codemirror/view', '@codemirror/language', '@lezer/highlight'],
+  })
+  .then(() => {
+    mkdirp(targetDir + '/catppuccin/monaco');
+    fs.copyFileSync(
+      path.resolve(vendor_modules_src + '/catppuccin/monaco/latte.json'),
+      path.resolve(targetDir + '/catppuccin/monaco/latte.json'),
+    );
+    fs.copyFileSync(
+      path.resolve(vendor_modules_src + '/catppuccin/monaco/frappe.json'),
+      path.resolve(targetDir + '/catppuccin/monaco/frappe.json'),
+    );
+    fs.copyFileSync(
+      path.resolve(vendor_modules_src + '/catppuccin/monaco/macchiato.json'),
+      path.resolve(targetDir + '/catppuccin/monaco/macchiato.json'),
+    );
+    fs.copyFileSync(
+      path.resolve(vendor_modules_src + '/catppuccin/monaco/mocha.json'),
+      path.resolve(targetDir + '/catppuccin/monaco/mocha.json'),
+    );
+
+    mkdirp(targetDir + '/catppuccin/prism');
+    fs.copyFileSync(
+      path.resolve(vendor_modules_src + '/catppuccin/prism/latte.css'),
+      path.resolve(targetDir + '/catppuccin/prism/latte.css'),
+    );
+    fs.copyFileSync(
+      path.resolve(vendor_modules_src + '/catppuccin/prism/frappe.css'),
+      path.resolve(targetDir + '/catppuccin/prism/frappe.css'),
+    );
+    fs.copyFileSync(
+      path.resolve(vendor_modules_src + '/catppuccin/prism/macchiato.css'),
+      path.resolve(targetDir + '/catppuccin/prism/macchiato.css'),
+    );
+    fs.copyFileSync(
+      path.resolve(vendor_modules_src + '/catppuccin/prism/mocha.css'),
+      path.resolve(targetDir + '/catppuccin/prism/mocha.css'),
+    );
+  });

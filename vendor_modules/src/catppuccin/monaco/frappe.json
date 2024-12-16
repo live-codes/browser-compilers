@@ -1,0 +1,52 @@
+{
+  "base": "vs-dark",
+  "inherit": true,
+  "rules": [
+    { "token": "", "foreground": "#c6d0f5" },
+    { "token": "keyword", "foreground": "#ca9ee6" },
+    { "token": "string", "foreground": "#a6d189" },
+    { "token": "number", "foreground": "#ef9f76" },
+    { "token": "comment", "foreground": "#737994" },
+    { "token": "type", "foreground": "#8caaee" },
+    { "token": "function", "foreground": "#99d1db" },
+    { "token": "variable", "foreground": "#c6d0f5" },
+    { "token": "constant", "foreground": "#ef9f76" },
+    { "token": "parameter", "foreground": "#f4b8e4" },
+    { "token": "class", "foreground": "#e5c890" },
+    { "token": "operator", "foreground": "#99d1db" }
+  ],
+  "colors": {
+    "editor.background": "#303446",
+    "editor.foreground": "#c6d0f5",
+    "editor.lineHighlightBackground": "#414559",
+    "editor.selectionBackground": "#51576d",
+    "editor.inactiveSelectionBackground": "#414559",
+
+    "editorWidget.background": "#292c3c",
+    "editorWidget.border": "#414559",
+
+    "sideBar.background": "#292c3c",
+    "sideBar.foreground": "#c6d0f5",
+
+    "editorBracketHighlight.foreground1": "#f2d5cf",
+    "editorBracketHighlight.foreground2": "#babbf1",
+    "editorBracketHighlight.foreground3": "#ca9ee6",
+    "editorBracketHighlight.foreground4": "#e5c890",
+    "editorBracketHighlight.foreground5": "#f4b8e4",
+    "editorBracketHighlight.foreground6": "#81c8be",
+    "editorBracketHighlight.unexpectedBracket.foreground": "#e78284",
+
+    "editorGutter.background": "#303446",
+    "editorGutter.modifiedBackground": "#8caaee",
+    "editorGutter.addedBackground": "#a6d189",
+    "editorGutter.deletedBackground": "#e78284",
+
+    "editorLineNumber.foreground": "#737994",
+    "editorLineNumber.activeForeground": "#c6d0f5",
+
+    "editorCursor.foreground": "#f2d5cf",
+
+    "diffEditor.insertedTextBackground": "#a6d18933",
+    "diffEditor.removedTextBackground": "#e7828433"
+  }
+}

@@ -12,9 +12,13 @@ babel-plugin-react-compiler: [MIT License](https://github.com/facebook/react/blo
 
 BBob: [MIT License](https://github.com/JiLiZART/BBob/blob/17edb9e3e6572e72ab9cb042d86e2215c60afa86/LICENSE)
 
+catppuccin-prismjs: [MIT License](https://github.com/catppuccin/prismjs/blob/de071c500dba91a73e40a9df1747a4aa1113fb80/LICENSE)
+
 Civet: [MIT License](https://github.com/DanielXMoore/Civet/blob/9b28e3a351d130ce031c7b28b50bcb6d2a499315/LICENSE)
 
 clientside-haml-js: [MIT License](https://github.com/uglyog/clientside-haml-js/blob/d814d16f46e1629c149c18d7692ba16f249f436b/LICENSE)
+
+codemirror-theme-catppuccin: [Apache License 2.0](https://github.com/ahdinosaur/codemirror-theme-catppuccin/blob/cc6ff908c4c69f8a2bb4e17d273d1fbd95437e74/package.json#L27)
 
 CoffeeScript: [MIT License](https://github.com/jashkenas/coffeescript/tree/07f644c39223e016aceedd2cd71b5941579b5659)
 
