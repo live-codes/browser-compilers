@@ -1,6 +1,6 @@
 {
   "name": "@live-codes/browser-compilers",
-  "version": "0.17.0",
+  "version": "0.17.1",
   "description": "Compilers that run in the browser, for use in livecodes.io",
   "author": "Hatem Hosny",
   "license": "MIT",
@@ -61,6 +61,7 @@
     "autoprefixer": "10.4.19",
     "babel-plugin-react-compiler": "19.0.0-beta-df7b47d-20241124",
     "babel-preset-solid": "1.8.19",
+    "codemirror-theme-catppuccin": "0.3.0",
     "cssnano-preset-default": "7.0.4",
     "dts-bundle": "0.1.1",
     "elkjs-svg": "0.2.1",

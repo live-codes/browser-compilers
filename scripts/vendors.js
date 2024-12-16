@@ -563,3 +563,12 @@ esbuild.build({
     }),
   ],
 });
+
+// codemirror-theme-catppuccin
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['vendor_modules/imports/codemirror-theme-catppuccin.js'],
+  outfile: 'dist/codemirror-theme-catppuccin/codemirror-theme-catppuccin.js',
+  format: 'esm',
+  external: ['@codemirror/view', '@codemirror/language', '@lezer/highlight'],
+});
