@@ -454,11 +454,19 @@ patch('node_modules/babel-plugin-react-compiler/dist/index.js', {
   });
 });
 
+// tailwindcss
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['vendor_modules/imports/tailwindcss.js'],
+  outfile: 'dist/tailwindcss/tailwindcss.js',
+  globalName: 'tailwindcss',
+});
+
 // tailwindcss-plugins
 esbuild.build({
   ...baseOptions,
   entryPoints: ['vendor_modules/imports/tailwindcss-plugins.js'],
-  outfile: 'dist/tailwindcss-plugins/tailwindcss-plugins.js',
+  outfile: 'dist/tailwindcss/tailwindcss-plugins.js',
   globalName: 'tailwindcssPlugins',
 });
 
