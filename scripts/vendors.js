@@ -470,6 +470,20 @@ esbuild.build({
   globalName: 'tailwindcssPlugins',
 });
 
+// monaco-tailwindcss
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['vendor_modules/imports/monaco-tailwindcss.js'],
+  outfile: 'dist/tailwindcss/monaco-tailwindcss.js',
+  format: 'esm',
+});
+
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['node_modules/monaco-tailwindcss/tailwindcss.worker.js'],
+  outfile: 'dist/tailwindcss/monaco-tailwindcss.worker.js',
+});
+
 // assemblyscript
 esbuild
   .build({

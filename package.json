@@ -1,6 +1,6 @@
 {
   "name": "@live-codes/browser-compilers",
-  "version": "0.19.1",
+  "version": "0.20.0",
   "description": "Compilers that run in the browser, for use in livecodes.io",
   "author": "Hatem Hosny",
   "license": "MIT",
@@ -69,6 +69,7 @@
     "flow-remove-types": "2.239.0",
     "less": "4.2.0",
     "lightningcss-wasm": "1.29.1",
+    "monaco-tailwindcss": "0.6.1",
     "patch-package": "6.4.7",
     "php-wasm": "0.0.8",
     "postcss": "8.4.39",
