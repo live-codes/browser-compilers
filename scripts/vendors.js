@@ -99,6 +99,10 @@ esbuild.build({
   entryPoints: ['vendor_modules/imports/pug.js'],
   outfile: 'dist/pug/pug.min.js',
   globalName: 'pug',
+  define: {
+    ...baseOptions.define,
+    'process.versions.node': '"20.14.0"',
+  },
   plugins: [
     NodeModulesPolyfills(),
     GlobalsPolyfills({
