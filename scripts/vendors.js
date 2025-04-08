@@ -164,14 +164,6 @@ esbuild.build({
   globalName: 'pluginPug',
 });
 
-// svelte
-esbuild.build({
-  ...baseOptions,
-  entryPoints: ['node_modules/svelte/compiler.cjs'],
-  outfile: 'dist/svelte/svelte-compiler.min.js',
-  globalName: 'svelte',
-});
-
 // clientside-haml-js
 mkdirp(targetDir + '/clientside-haml-js');
 fs.copyFileSync(
