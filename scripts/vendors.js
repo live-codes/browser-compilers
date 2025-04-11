@@ -156,6 +156,14 @@ patch('node_modules/browserslist/index.js', {
     });
   });
 
+// prettier-plugin-java
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['node_modules/prettier-plugin-java/dist/index.js'],
+  outfile: 'dist/prettier/parser-java.js',
+  globalName: 'pluginJava',
+});
+
 // @prettier/plugin-pug
 esbuild.build({
   ...baseOptions,
