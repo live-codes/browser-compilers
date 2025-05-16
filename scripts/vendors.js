@@ -636,3 +636,11 @@ esbuild
       path.resolve(targetDir + '/catppuccin/prism/mocha.css'),
     );
   });
+
+// jinja
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['node_modules/@huggingface/jinja/dist/index.js'],
+  outfile: 'dist/jinja/jinja.js',
+  globalName: 'Jinja',
+});
