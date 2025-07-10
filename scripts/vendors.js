@@ -644,3 +644,19 @@ esbuild.build({
   outfile: 'dist/jinja/jinja.js',
   globalName: 'Jinja',
 });
+
+// highlight.js
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['node_modules/highlight.js/lib/index.js'],
+  outfile: 'dist/highlight.js/highlight.js',
+  format: 'esm',
+});
+
+// path-browserify
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['node_modules/path-browserify/index.js'],
+  outfile: 'dist/path-browserify/path-browserify.js',
+  format: 'esm',
+});
