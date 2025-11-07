@@ -550,14 +550,6 @@ esbuild
     );
   });
 
-// bbob
-esbuild.build({
-  ...baseOptions,
-  entryPoints: ['vendor_modules/imports/bbob.js'],
-  outfile: 'dist/bbob/bbob.js',
-  globalName: 'BBob',
-});
-
 // @typescript/ata
 esbuild.build({
   ...baseOptions,

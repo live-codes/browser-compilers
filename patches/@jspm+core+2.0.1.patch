@@ -1,0 +1,16 @@
+diff --git a/node_modules/@jspm/core/nodelibs/browser/worker_threads.js b/node_modules/@jspm/core/nodelibs/browser/worker_threads.js
+index 23f0041..ba0c53f 100644
+--- a/node_modules/@jspm/core/nodelibs/browser/worker_threads.js
++++ b/node_modules/@jspm/core/nodelibs/browser/worker_threads.js
+@@ -93,9 +93,9 @@ if (!isMainThread) {
+ 
+   parentPort.emit = () => notImplemented();
+   parentPort.removeAllListeners = () => notImplemented();
+-
++(async () => {
+   ([{ threadId, workerData, environmentData }] = await once(parentPort, 'message'));
+-
++})();
+   // alias
+   parentPort.addEventListener('offline', () => parentPort.emit('close'));
+ }
