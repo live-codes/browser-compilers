@@ -172,6 +172,13 @@ esbuild.build({
   globalName: 'pluginPug',
 });
 
+// @prettier/plugin-minizinc
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['vendor_modules/src/prettier-plugin-minizinc/prettier-plugin-minizinc.js'],
+  outfile: 'dist/prettier/parser-minizinc.js',
+});
+
 // clientside-haml-js
 mkdirp(targetDir + '/clientside-haml-js');
 fs.copyFileSync(
