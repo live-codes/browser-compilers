@@ -659,3 +659,11 @@ esbuild.build({
   outfile: 'dist/path-browserify/path-browserify.js',
   format: 'esm',
 });
+
+// dotenv
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['vendor_modules/imports/dotenv.js'],
+  outfile: 'dist/dotenv/dotenv.js',
+  globalName: 'dotenv',
+});
