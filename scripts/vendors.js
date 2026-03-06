@@ -651,6 +651,12 @@ esbuild.build({
   outfile: 'dist/highlight.js/highlight.js',
   format: 'esm',
 });
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['node_modules/highlight.js/lib/index.js'],
+  outfile: 'dist/highlight.js/highlight.umd.js',
+  globalName: 'hljs',
+});
 
 // path-browserify
 esbuild.build({
