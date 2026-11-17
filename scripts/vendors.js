@@ -444,6 +444,20 @@ esbuild.build({
     }),
   ],
 });
+esbuild.build({
+  ...baseOptions,
+  entryPoints: ['vendor_modules/imports/solid-babel-plugin.js'],
+  outfile: 'dist/solid-babel-plugin/solid-babel-plugin.js',
+  globalName: 'SolidBabelPlugin',
+  define: { global: 'window', 'process.env': '{}' },
+  plugins: [
+    NodeModulesPolyfills(),
+    GlobalsPolyfills({
+      process: true,
+      buffer: true,
+    }),
+  ],
+});
 
 // react compiler
 patch('node_modules/babel-plugin-react-compiler/dist/index.js', {
